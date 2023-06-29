@@ -3,9 +3,9 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import { Link, graphql } from "gatsby";
 
-const BlogPage = ({ data }) => {
+const ProjectsPage = ({ data }) => {
   return (
-    <Layout pageTitle="Articles">
+    <Layout pageTitle="Projects">
       {data.allMdx.nodes.map((node) => (
         <article key={node.id}>
           <h2>
@@ -36,6 +36,6 @@ export const query = graphql`
     }
   }
 `;
-export const Head = () => <Seo title="Articles" />;
+export const Head = () => <Seo title="Projects" />;
 
-export default BlogPage;
+export default ProjectsPage;

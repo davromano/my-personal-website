@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { Link , useStaticQuery, graphql} from 'gatsby'
+import * as React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import {
   container,
   heading,
@@ -7,7 +7,7 @@ import {
   navLinkItem,
   navLinkText,
   siteTitle,
-} from '../styles/layout.module.css'
+} from "../styles/layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -18,36 +18,38 @@ const Layout = ({ pageTitle, children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <div className={container}>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
-       <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>Home</Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>About me</Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/projects" className={navLinkText}>My projects</Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/articles" className={navLinkText}>Articles</Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/contacts" className={navLinkText}>Contacts</Link>
-          </li>
-        </ul>
+    <>
+      <nav className="bg-gray-800 h-12">
+        <div className="container mx-auto flex justify-between items-center px-4">
+          <Link to="/" className="text-white font-bold">
+            Davide Romano
+          </Link>
+          <div className="flex space-x-4">
+            <Link to="/about" className="text-white">
+              About
+            </Link>
+            <Link to="/projects" className="text-white">
+              Projects
+            </Link>
+            <Link to="/articles" className="text-white">
+              Articles
+            </Link>
+            <Link to="/contacts" className="text-white">
+              Contacts
+            </Link>
+          </div>
+        </div>
       </nav>
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
-        {children}
-      </main>
-    </div>
-  )
-}
+      <div>
+        <main>
+          {children}
+        </main>
+      </div>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

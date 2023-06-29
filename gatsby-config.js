@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Davide's corner",
+    title: "Davide Romano",
   },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    'gatsby-plugin-postcss',
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -16,8 +17,10 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        name: `articles`,
         path: `${__dirname}/articles`,
+        name: `projects`,
+        path: `${__dirname}/projects`,
       },
     },
   ],
