@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ProjectDetails = ({ data }) => {
-  const { slug, title, date, markdown } = data;
+const ProjectDetails = ({ pageContext }) => {
+  const { slug, title, date, markdown } = pageContext;
 
   return (
     <div>
@@ -12,7 +12,5 @@ const ProjectDetails = ({ data }) => {
     </div>
   );
 };
-export const query = graphql`
 
-`
 export default ProjectDetails;
