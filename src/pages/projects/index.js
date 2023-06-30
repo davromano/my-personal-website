@@ -4,33 +4,38 @@ import Seo from "../../components/seo";
 import { Link, graphql } from "gatsby";
 
 const ProjectsPage = ({ data }) => {
+  const projects = data.allMdx.nodes.filter(node => node.fields.source === 'projects')
+
   return (
     <Layout pageTitle="Projects">
-      {data.allMdx.nodes.map((node) => (
+      <h1>Projects</h1>
+      {projects.map((node) => (
         <article key={node.id}>
           <h2>
-            <Link to={`/articles/${node.frontmatter.slug}`}>
+            <Link to={`/projects/${node.frontmatter.slug}`}>
               {node.frontmatter.title}
             </Link>
           </h2>
-          <p>Posted: {node.frontmatter.date}</p>
           <p>{node.excerpt}</p>
         </article>
       ))}
+      
     </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allMdx {
       nodes {
+        id
+        fields {
+          source
+        }
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
           title
           slug
         }
-        id
         excerpt
       }
     }
