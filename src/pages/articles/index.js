@@ -8,10 +8,10 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Articles">
-      <h1>Articles</h1>
+      <h1 style={{ fontFamily: 'tt-norms' }}>Articles</h1>
       {
         articles.map((node) => (
-          <article key={node.id}>
+          <article key={node.id} style={{ fontFamily: 'tt-norms' }}>
             <h2><Link to={`/articles/${node.frontmatter.slug}`}>
                 {node.frontmatter.title}
             </Link>

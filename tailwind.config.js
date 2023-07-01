@@ -9,7 +9,9 @@ module.exports = {
     extend: {},
     extend: {
       colors: {
-        'montreux-yellow':'#fffe53'
+        'white-minsk':'#f1e8ea',
+        'middle-minsk':'#c6beda',
+        'dark-minsk':'#2f296d'
       },
     },
   },
