@@ -1,16 +1,30 @@
-import { graphql } from 'gatsby';
-import React from 'react';
+import React from "react";
+import Layout from "../components/layout";
+import { graphql } from 'gatsby' 
 
-const ArticleTemplate = ({ pageContext }) => {
-  const { slug } = pageContext;
+const ArticleTemplate = ({ data, children }) => {
+  const { title, date} = data.mdx.frontmatter
+  const { body } = data.mdx
 
   return (
-    <div>
-      <h1>Article Template</h1>
-      <h2>Slug: {slug}</h2>
-      {/* Add your desired content here */}
-    </div>
+    <Layout>
+      <h1>{title}</h1>
+      <h3>{date}</h3>
+      <p>{children}</p>
+    </Layout>
   );
 };
+
+export const query = graphql`
+  query ArticlePage($slug: String) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date(formatString: "MMMM D, YYYY")
+      }
+      body
+    }
+  }
+`;
 
 export default ArticleTemplate;

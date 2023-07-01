@@ -1,16 +1,28 @@
-import React from 'react';
+import React from "react";
+import Layout from "../components/layout";
+import { graphql } from 'gatsby' 
 
-const ProjectDetails = ({ pageContext }) => {
-  const { slug, title, date, markdown } = pageContext;
+const ProjectDetails = ({ data, children}) => {
+  const { title } = data.mdx.frontmatter
+  const { body } = data.mdx
 
   return (
-    <div>
-      <h1>Title: {title}</h1>
-      <p>Slug: {slug}</p>
-      <p>Date: {date}</p>
-      <div dangerouslySetInnerHTML={{ __html: markdown }}></div>
-    </div>
+    <Layout>
+      <h3>{title}</h3>
+      <p>{children}</p>
+    </Layout>
   );
 };
+
+export const query = graphql`
+  query ProjectsPage($slug: String) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+      }
+      body
+    }
+  }
+`;
 
 export default ProjectDetails;
