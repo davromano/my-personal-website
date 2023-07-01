@@ -1,15 +1,18 @@
 import React from "react";
 import Layout from "../components/layout";
 import { graphql } from 'gatsby' 
+import { MDXProvider } from '@mdx-js/react';
+import components from "../components/mdxMapping";
 
-const ProjectDetails = ({ data, children}) => {
+const ProjectDetails = ({ data, children }) => {
   const { title } = data.mdx.frontmatter
-  const { body } = data.mdx
 
   return (
     <Layout>
       <h3>{title}</h3>
-      <p>{children}</p>
+      <MDXProvider components={components}>
+      {children}
+    </MDXProvider>
     </Layout>
   );
 };
