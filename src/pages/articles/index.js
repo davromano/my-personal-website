@@ -8,7 +8,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Articles">
-      <h1 style={{ fontFamily: 'tt-norms' }}>Articles</h1>
+      <h1 style={{ fontFamily: 'tt-norms' }}>Still in development !</h1>
       {
         articles.map((node) => (
           <article key={node.id} style={{ fontFamily: 'tt-norms' }}>

@@ -11,7 +11,8 @@ module.exports = {
       colors: {
         'white-minsk':'#f1e8ea',
         'middle-minsk':'#c6beda',
-        'dark-minsk':'#2f296d'
+        'dark-minsk':'#2f296d',
+        'red-highlight': '#b5446e'
       },
     },
   },
