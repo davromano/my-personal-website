@@ -9,18 +9,6 @@ const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="Articles">
       <h1 style={{ fontFamily: 'tt-norms' }}>Still in development !</h1>
-      {
-        articles.map((node) => (
-          <article key={node.id} style={{ fontFamily: 'tt-norms' }}>
-            <h2><Link to={`/articles/${node.frontmatter.slug}`}>
-                {node.frontmatter.title}
-            </Link>
-            </h2>
-            <p>Posted: {node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
-          </article>
-        ))
-      }
     </Layout>
   )
 }
@@ -46,3 +34,17 @@ export const query = graphql`
 export const Head = () => <Seo title="Articles" />
 
 export default BlogPage
+
+/*
+{
+  articles.map((node) => (
+    <article key={node.id} style={{ fontFamily: 'tt-norms' }}>
+      <h2><Link to={`/articles/${node.frontmatter.slug}`}>
+          {node.frontmatter.title}
+      </Link>
+      </h2>
+      <p>Posted: {node.frontmatter.date}</p>
+      <p>{node.excerpt}</p>
+    </article>
+  ))
+}*/

@@ -9,6 +9,7 @@ import Seo from '../components/seo'
 const ContactsPage = () => {
   return (
     <Layout pageTitle="ContactsPage">
+      <img src='./images/me.JPG' alt='me'/>
       <p>Linkedin</p>
       <p>davidesmail00@gmail.com</p>
       <p>Instagram</p>

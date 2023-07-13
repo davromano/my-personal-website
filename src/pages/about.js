@@ -10,7 +10,7 @@ const AboutPage = () => {
   return (
     <Layout pageTitle="About Me">
       <div style={{ fontFamily: 'tt-norms' }} className="flex-col items-center justify-center">
-        <h1>About</h1>
+        <h1>About me</h1>
         <p>
           Hi there! I'm Davide, a 1st year Digital Humanities student at EPFL
           originally from Genoa, Italy. I am mainly interested in data science,
