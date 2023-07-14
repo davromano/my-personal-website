@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
     <Layout pageTitle="Home Page">
       <div
         className="flex h-screen text-dark-minsk"
-        style={{ fontFamily: "tt-norms" }}
+        style={{ fontFamily: "tt-norms", height: "calc(100vh - 4rem)" }}
       >
         <div className="w-1/2 flex items-center justify-center -mt-32">
           <div className="mx-32">

@@ -15,9 +15,8 @@ const ElementBox = ({ node }) => {
 
   return (
     <div
-      className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 flex flex-col w-11/12 ${
-        isHovered ? "bg-middle-minsk" : ""
-    } transition duration-500 ease-in-out`}
+      className="bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 flex flex-col w-11/12 shadow transition duration-700 ease-in-out"
+      style={{ backgroundColor: isHovered ? "#c6beda" : "transparent" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
