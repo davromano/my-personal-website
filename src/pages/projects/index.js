@@ -36,7 +36,7 @@ const ProjectsPage = ({ data }) => {
                 key={tag}
                 className={`bg-transparent border border-middle-minsk rounded-lg p-2 ${
                   selectedTags.includes(tag)
-                    ? "bg-dark-minsk text-white-minsk"
+                    ? "bg-[#2f296d] text-[#f1e8ea]"
                     : "hover:bg-middle-minsk hover:text-dark-minsk"
                 } transition-all duration-300 ease-in-out`}
                 onClick={() => handleTagClick(tag)}
@@ -46,9 +46,9 @@ const ProjectsPage = ({ data }) => {
             ))}
           </ul>
         </div>
-          {selectedProjects.map((node) => (
-            <ElementBox key={node.id} node={node} />
-          ))}
+        {selectedProjects.map((node) => (
+          <ElementBox key={node.id} node={node} />
+        ))}
       </div>
     </Layout>
   );
