@@ -32,7 +32,7 @@ const ProjectsPage = ({ data }) => {
         <div className="mb-3">
           <ul className="flex space-x-4">
             {all_tags.map((tag) => (
-              <li
+              <button
                 key={tag}
                 className={`bg-transparent border border-middle-minsk rounded-lg p-2 ${
                   selectedTags.includes(tag)
@@ -42,7 +42,7 @@ const ProjectsPage = ({ data }) => {
                 onClick={() => handleTagClick(tag)}
               >
                 {tag}
-              </li>
+              </button>
             ))}
           </ul>
         </div>
