@@ -12,7 +12,7 @@ const ContactsPage = () => {
     <Layout pageTitle="ContactsPage">
       <div className="flex items-center space-x-60" style={{ height: 'calc(100vh - 4rem)' }}>
         <StaticImage
-          src="../images/me.JPG"
+          src="../images/profile_photo.jpg"
           alt="Davide Romano profile photo"
           placeholder="blurred"
           width={400}
