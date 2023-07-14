@@ -6,6 +6,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-plugin-postcss",
+    "gatsby-plugin-react-svg",
     {
       resolve: "gatsby-source-filesystem",
       options: {

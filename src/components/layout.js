@@ -13,13 +13,13 @@ const Layout = ({ pageTitle, children }) => {
   `);
 
   return (
-    <>
-      <nav className="bg-gradient-to-r from-dark-minsk to-white-minsk h-16 flex items-center">
+    <div className="flex flex-col min-h-screen">
+      <nav className="bg-gradient-to-r from-dark-minsk to-white-minsk h-16 flex items-center fixed top-0 w-full z-10">
         <div className="container mx-auto flex justify-between items-center  text-dark-minsk" style={{ fontFamily: 'tt-norms' }}>
-          <Link to="/" className="text-white-minsk font-bold text-xl">
+          <Link to="/" className="text-white-minsk font-normal text-2xl">
             Davide Romano
           </Link>
-          <div className="flex space-x-10 text-lg font-bold">
+          <div className="flex space-x-10 text-lg font-normal">
             <Link to="/about" className="hover:text-clicked-minsk hover:underline">
               About me
             </Link>
@@ -35,12 +35,12 @@ const Layout = ({ pageTitle, children }) => {
           </div>
         </div>
       </nav>
-      <div>
-        <main className=" bg-white-minsk" style={{ height: 'calc(100vh - 4rem)' }}>
+      <div className="main-content flex-grow overflow-y-auto mt-16">
+        <main className=" bg-white-minsk ">
           {children}
         </main>
       </div>
-    </>
+    </div>
   );
 };
 
