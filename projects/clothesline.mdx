@@ -4,5 +4,57 @@ slug: "clothesline"
 tags:
   - User Research
   - Data Science
+
 ---
-## This is CLOTHESLINE!
+
+import Titles from "/src/components/Titles.js";
+import Paragraph from "/src/components/Paragraph.js";
+import { StaticImage } from "gatsby-plugin-image";
+import imageUrl from '/src/images/me.jpg';
+
+### Welcome to Clothesline
+
+<img src={imageUrl} alt="Image alt" style={{ width: '400px' }}/>
+<StaticImage
+          src="../src/images/me.jpg"
+          alt="Davide Romano profile photo"
+          placeholder="blurred"
+          width={400}
+          height={400}
+          className="shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105"
+          />
+
+<Paragraph>An initiative aiming to bring you closer to your clothes and your community.</Paragraph>
+
+Now ask yourself these three questions: What percentage of your closet do you wear? How often do you wish to buy new clothes but know that you have plenty at home? How do you feel that the fashion sector accounts for 5-10% of global greenhouse gas emissions? If any of these questions resonated with you, then read on.
+
+Clothesline’s main objective is to reduce this turnover of clothes and inspire a community of fashion lovers who are are sharing their wardrobe. We hope to achieve this through sharing your clothes with others through our app, Clothesline.
+
+This issue was identified during our “swapping sweaters” experience. We noticed that it’s quite difficult to find a perfect swap between two people, and in general how difficult it is to find a perfect &quot;match&quot;. We propose the idea of having a unique, shared wardrobe, where people can upload their clothes, this way we can address the problem which arisen from the experience: the lack of supply and the difficulty of finding a perfect match, who made the flatmate refuse, as he had been given a single choice. With the app, users would have a large catalog of clothes from which to choose and there wouldn’t need to be any specific match.
+
+We have illustrated the value of Clothesline in the new experience map below.
+
+
+### State of the art
+
+The current climate of clothing is that people need an outlet to share their old clothes, in order to make space for incoming clothing. Currently, there are many applications that offer the ability to buy and resell second-hand clothing. For example, Depop, a second-clothing marketplace, is held back by its primary motivator being an individualistic pursuit of making money. This leads to counterfeit clothing, incorrect listings and an interaction where each party is trying to maximise their gain.
+
+Clothesline is tackling the problem by building a community of people willing to share their wardrobe. With a group of like minded individuals, sharing clothes changes into a non-zero sum interaction. This motivates users to upload photos of themselves in the shared clothing, to leave their mark in the timeline of a piece of clothing and the broader community. The more people upload photos and clothing to the application, the greater value each of clothing and the community of Clothesline has.
+
+### Objective of the project
+
+The main idea upon which all the project is built and with which it can be summarized is that we want to invert the belief that second-hand clothes, having been worn by many different people, lose value and are less desirable. Instead, we want to create an app that enables people to create a community in which clothes are shared as if they are hanging in a “shared wardrobe” and in which the garment itself is the protagonist, with a story built by all the different experiences it lived by being worn by people. We want people to be excited about used clothes and be able, through our app, to know the history of a piece of clothing and to contribute enriching it. This way we want to promote clothes circulation, reducing the impact of producing new products and giving the people a totally new experience.
+
+### The Idea
+
+We want to convince people that the more a garment has been used, has been “lived”, the more exciting it is to wear it. We believe that by concretely showing people the history of a piece of clothing, with pictures and descriptions, it can help to make people more willing to contribute to the community adding their adventure to the story. From our experiences we noticed how difficult it is, in the clothing swap scenario, to find a perfect match between the two parties, tastes can be very different, supply can be not enough. For this reason, we chose to not look for the perfect match, but to create a shared wardrobe, in which people can simply ask clothes to the current owners and contribute to the community.
+
+### The Outcome
+
+In order to realize our idea, through each weekly assignment, we ended up designing an app to support the creation of this community. In the app the main character is the garment, it has a history page in which you can swipe through the pictures of all previous owners wearing it and you can add yours. In the app also other side functionalities will be present, like a personalized recommendation system to suggest a user the best clothes for him, a chat service to organize the delivery of clothes and a search engine to find the garment you’re looking for.
+
+### Possible Drawbacks and Future Development
+
+As every community-based application, for the app to work well there is the need of a solid and participating community, and this may be difficult to create, especially at the beginning, when people don’t know and are not comfortable with using the app. Another potential drawback is the difficulty in inverting a well-established belief such as the belief that clothes lose value passing from person to person.
+
+For future development, there is much room for improvement and the introduction of new features, for example, a social media-like platform in which people can discuss and comment on pictures, or we could expand to other products and not just clothing, with the same final goal to reduce carbon footprint.
