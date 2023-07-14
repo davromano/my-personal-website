@@ -12,6 +12,8 @@ const ProjectsPage = ({ data }) => {
   const [selectedTags, setSelectedTags] = React.useState([]);
 
   const handleTagClick = (tag) => {
+    console.log(selectedTags); // Print the updated selectedTags array
+    
     setSelectedTags((prevSelectedTags) => {
       if (prevSelectedTags.includes(tag)) {
         return prevSelectedTags.filter((selectedTag) => selectedTag !== tag);
@@ -19,6 +21,9 @@ const ProjectsPage = ({ data }) => {
         return [...prevSelectedTags, tag];
       }
     });
+
+    
+
   };
 
   const selectedProjects = projects.filter((node) =>
@@ -32,17 +37,17 @@ const ProjectsPage = ({ data }) => {
         <div className="mb-3">
           <ul className="flex space-x-4">
             {all_tags.map((tag) => (
-              <li
+              <button
                 key={tag}
-                className={`bg-transparent border border-middle-minsk rounded-lg p-2 ${
+                className={`border rounded-lg p-2 ${
                   selectedTags.includes(tag)
-                    ? "bg-[#2f296d] text-[#f1e8ea]"
-                    : "hover:bg-middle-minsk hover:text-dark-minsk"
+                    ? "bg-dark-minsk text-white-minsk"
+                    : "bg-transparent border-middle-minsk  hover:bg-middle-minsk hover:text-dark-minsk"
                 } transition-all duration-300 ease-in-out`}
                 onClick={() => handleTagClick(tag)}
               >
                 {tag}
-              </li>
+              </button>
             ))}
           </ul>
         </div>
