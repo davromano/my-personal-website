@@ -12,6 +12,8 @@ const ProjectsPage = ({ data }) => {
   const [selectedTags, setSelectedTags] = React.useState([]);
 
   const handleTagClick = (tag) => {
+    console.log(selectedTags); // Print the updated selectedTags array
+    
     setSelectedTags((prevSelectedTags) => {
       if (prevSelectedTags.includes(tag)) {
         return prevSelectedTags.filter((selectedTag) => selectedTag !== tag);
@@ -19,6 +21,9 @@ const ProjectsPage = ({ data }) => {
         return [...prevSelectedTags, tag];
       }
     });
+
+    
+
   };
 
   const selectedProjects = projects.filter((node) =>
