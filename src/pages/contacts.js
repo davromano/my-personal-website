@@ -1,6 +1,5 @@
 // Step 1: Import React
 import * as React from "react";
-import { Link } from "gatsby";
 import "../styles/style.css";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -10,7 +9,6 @@ import { StaticImage } from "gatsby-plugin-image";
 const ContactsPage = () => {
   return (
     <Layout pageTitle="ContactsPage">
-      <img src={'/profile_photo.jpg'} alt="Ciao"/>
       <div className="flex items-center space-x-60" style={{ height: 'calc(100vh - 4rem)' }}>
         <StaticImage
           src="../images/profile_photo.jpg"

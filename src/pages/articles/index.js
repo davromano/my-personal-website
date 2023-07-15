@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 const BlogPage = ({ data }) => {
   const articles = data.allMdx.nodes.filter(node => node.fields.source === 'articles')

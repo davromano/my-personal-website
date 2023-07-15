@@ -1,6 +1,5 @@
 // Step 1: Import React
 import * as React from "react";
-import { Link } from "gatsby";
 import "../styles/style.css";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
