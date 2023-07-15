@@ -10,6 +10,7 @@ import { StaticImage } from "gatsby-plugin-image";
 const ContactsPage = () => {
   return (
     <Layout pageTitle="ContactsPage">
+      <img src={'/profile_photo.jpg'} alt="Ciao"/>
       <div className="flex items-center space-x-60" style={{ height: 'calc(100vh - 4rem)' }}>
         <StaticImage
           src="../images/profile_photo.jpg"
