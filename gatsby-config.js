@@ -14,13 +14,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/projects/images`,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `projects`,
         path: `${__dirname}/projects`,
       },
     },
-    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,5 +55,22 @@ module.exports = {
         extensions: [`.md`, `.mdx`],
       },
     },
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        root: __dirname,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 500,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    
   ],
 };
