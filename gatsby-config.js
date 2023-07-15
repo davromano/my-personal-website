@@ -3,14 +3,18 @@ module.exports = {
     title: "Davide Romano",
   },
   plugins: [
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-postcss",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images-projects`,
+        path: `${__dirname}/projects/images`,
       },
     },
     {
@@ -20,34 +24,33 @@ module.exports = {
         path: `${__dirname}/projects`,
       },
     },
-    `gatsby-plugin-mdx`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/projects`,
-        extensions: [`.md`, `.mdx`],
-      },
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
         name: `articles`,
         path: `${__dirname}/articles`,
-        extensions: [`.md`, `.mdx`],
-      }
+      },
     },
     `gatsby-plugin-mdx-source-name`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    `gatsby-remark-images`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        path: `${__dirname}/projects`,
-        name: `projects`, // this name will be added to the Mdx nodes
-      },
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `articles`,
-        path: `${__dirname}/articles`,
-        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 500,
+              linkImagesToOriginal: false,
+              quality: 50,
+              withWebp: true,
+            },
+          },
+        ],
       },
     },
+    
   ],
 };
