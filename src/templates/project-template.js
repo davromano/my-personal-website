@@ -9,9 +9,15 @@ const ProjectDetails = ({ data, children }) => {
 
   return (
     <Layout>
-      <br/>
-      <h3 className=" text-2xl" style={{ fontFamily: 'tt-norms' }}>{title}</h3>
-        <MDXProvider components={components}>{children}</MDXProvider>
+      <br />
+      <h3
+      className="  text-dark-minsk"
+        style={{ fontFamily: "tt-norms", fontSize: "3.75rem" }}
+      >
+        {title}
+      </h3>
+
+      <MDXProvider components={components}>{children}</MDXProvider>
     </Layout>
   );
 };
