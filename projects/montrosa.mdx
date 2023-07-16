@@ -4,3 +4,137 @@ slug: "montrosa"
 tags:
   - Content Design
 ---
+
+<u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}>[Sito web](https://davromano.github.io/Montrosa/)</u>
+
+## Who is Montrosa?
+
+Our project Montrosa aims to give the opportunity of interacting and exploring the cultural heritage of the Montreux Jazz Festival's posters through the use of AI generative models.
+
+By creating an easy to use and interactive experience where the users can create tributes and variations of the posters we aim to make people discover the artists and their works.
+Moreover, we can shed light on the latest AI technologies and make them visible and seamlessly usable to the spectators.
+
+We achieved this by designing a high fidelity prototype in Figma that incorporates the visual style of Montreux Jazz Festival and employs UI and visual design best practices. Users are able to select the poster and generate images based on selected keywords and a creativity range.
+We encountered also relevant ethical issues, that we addressed by framing the story of our experience in the fictional character of Montrosa.
+
+The project was done for the course Cultural Data Sculpting at EPFL and through the course we followed the design process from the research phase to the prototyping.
+Our client, Alain Dufaux from the Montreux Jazz Festival Digital Project received our work positively, thus we developed it further and developed a simplified version in the form of a website.
+This prototype was showed at the Chalet Claude Nobs during the visitors visit of the Montreux Jazz Festival cultural heritage and of the chalet.
+
+
+## Methodology and Design process
+During our project we followed the double diamond model for our project.
+#### Research
+
+In our design process we started by brainstorming different ideas and experiences we could design starting from the initial data we had that included all the MJF's posters from 1967.
+We had various ideas that ranged from the most informative - exploring the lives of the artists and their history - to the interactive and entertaining - generating AI posters or live animations of the posters.
+
+We then defined three ideas and their main concept with the definition of the Golden Circle: Why, What, How.
+Our main three concepts were focusing on respectively AI poster generation, background stories of artists and the exploration of posters'colors.
+We then had our first presentation and received feedback for each of these concepts. We then opted for the AI poster generation as it would have been something new that harness the potential of these new technologies.
+
+After the selection of the poster, we explored the state of art in this field, we were searching for museum exhibition that used generative AI.
+
+#### Concept
+
+Our next step in the course was to define clearly our concept and carry on with different prototypes and implementations to reach our goals.
+Our goal is to show the cultural heritage of the MJF's posters by entertaining the users through an interaction with AI generative models in order to inform users of these works of art and their artists.
+In order to reach this goal we had to create a story around our experience. 
+We hide all the technical details from the AI model we were using and we created a fictional character Montrosa.
+An AI that was born in Montreux whose mission is now to share her deep admiration with others by crafting tributes inspired by the artists'masterpieces.
+This story serves as a powerful means to place our message at the center of the exhibition. Montrosa's story embodies the essence of our project and reinforces the core message we aim to convey.
+
+#### Prototype
+As part of the course we designed a museum installation and we had to decide between different installations.
+We opted for the Panorama, a 360 degrees screen, 4 meters high, and a fixed tablet at the centre of Panorama that will be mainly the screen with which the users will be able to interact and affect the Panorama.
+This ensures that the users will always have in front the artists posters.
+
+<img src={'/panorama.png'} alt="Ciao"  style={{ width: '500px' }} className="mb-4"/>
+
+For the colors we kept them at the minimal number possible, following the design principles of 60-30-10 color palette distribution.
+Our colors are mainly Black (#000000), White,  (#FFFFFF) and Montreux-inspired Yellow  (#FFFE53). The Yellow is taken directly from the website.
+Regarding the fonts we decided to use similar fonts to the ones used on the MJF website.
+
+To generate new images with AI, we utilize Stable Diffusion, a large-scale, latent text-to-image diffusion model that's available as an open-source tool.
+
+The user flow of our project can be divided in 4 main sections:
+
+1. Poster Selection
+
+<img src={'/poster-selection.png'} alt="Ciao"  style={{ width: '600px' }} className="mb-4"/>
+<img src={'/panorama-selection.png'} alt="Ciao"  style={{ width: '600px' }} className="mb-4"/>
+Poster selection in the ipad screen and Panorama
+
+2. Mode selection
+
+Here the users will be able to go to the keyword selection or to randomly select a set of different keywords, in case people want to not bother with the selection of keywords.
+In the Panorama the poster selected will become bigger and the same description will appear together with the name of the author and an image of him/her.
+
+<img src={'/mode-selection.png'} alt="Ciao"  style={{ width: '600px' }} className="mb-4"/>
+
+3. Keyword selection
+
+In this 3rd section, the user will have a screen with around 12 different keywords that can be selected and mixed with full freedom.
+Both these selection can be also randomizable, in case the user finds the selection too overwhelming.
+
+<img src={'/keyword-selection.png'} alt="Ciao"  style={{ width: '600px' }} className="mb-4"/>
+
+In the Panorama the selected keywords will also appear and float around, in order to show to the other visitors what the user using the tablet is selecting
+
+4. Generated results
+
+After selecting the “generate” button, in the Panorama all the posters will disappear and only the one selected will be present. At this point we imagine all the generated posters to come out of the main poster with some cool animation and sound effects. There will be around 20 posters that will be generated and they will be distributed based on the image weight of the generation process.
+
+<img src={'/generated-results-ipad.png'} alt="Ciao"  style={{ width: '500px' }} className="mb-4"/>
+
+The closer the image generated to the original poster the higher will be the value of the image weight. This means that the images closer to the original poster will be more similar to it while on the opposite side of the Panorama there will more creative and different posters and they will be more affected by the selection of the keywords.
+
+<img src={'/generated-results-pano.png'} alt="Ciao"  style={{ width: '700px' }} className="mb-4"/>
+
+
+## Challenges & Solutions
+
+Our main challenge was to adapt our project to fit the story and the goal we want to achieve. 
+We had to address ethical challenges and a risk of causing resentment by artists, the organizers or clients.
+It was important to not frame our project as an alternative or in competition with the artists work.
+Our project had to find a way to express clearly the intention and the message it is built with.
+By iterating many times, we could design a UI and an experience that would focus for real on the artists and their work of art through the fictional story of Montrosa and design choices that highlight the original works of art.
+
+More in general, it was important to always keep in mind our design goal and ask ourselves: "Is this prototype achieving our goal?"
+
+## Development
+After the end of the course me and maelys billon we decided to develop the project voluntarily and make it real. 
+After talking with our client and asking suggestions from the people from the EM+ Lab we decided to develop a web-based prototype version where users are able to interact with Roger Bornand's poster of 1968.
+This development process took around 2 weeks and we used Vue.js to develop the website.
+Due to copyright reasons, we could only develop the prototype for one poster only.
+We made it so that it can be expanded and developed easily in the future with more posters or more features.
+
+## Impact & Results
+We received positive feedback on our project, as it was described as coherent, complete and with a minimalistic and effective UI.
+The interaction is simple and easy to understand, and it was discussed with Teacher Assistants and the professor possible future improvements for the project.
+After we developed the website for the project, we had the opportunity to show our work at Claude Nobs chalet up on the hills of Montreux.
+Visitors were interested, some on the ethical side of the project, others were asking us questions on the functionality behind it.
+The director of the festival also congratulated us for the project and we were happy to receive positive feedback from most people.
+
+## Roles and responsabilities
+I worked with other two students Maelys Billon and Weier Liu on the design process.
+My work mostly was focusing on the brainstorming and research of initial ideas and later on the UI of the actual prototype on Figma.
+
+## My experience 
+
+This project was important on many levels. It gave me the opportunity to develop my design process skills and UI prototyping in Figma.
+Furthermore, I focused on developing my presentation skills, the ability to collaborate with clients and brainstorm in teams.
+Lastly, it was an important experience where I could see the "behind-the-scenes" of a festival and their organizators.
+
+Bonus point: I had the chance to meet Woodkid (one of my favourite artists) and have a talk about AI and show our project :O
+
+Thanks to my teammates, to Alain Dufaux, from Montreux Jazz Festival Digital Project, and people from the EM+ Lab.
+
+<img src={'/montrosa_photo_me.jpg'} alt="Ciao"  style={{ width: '600px' }} className="mb-4"/>
+
+<img src={'/drums.jpg'} alt="Ciao"  style={{ width: '300px' }} className="mb-4"/>
+
+<img src={'/montreux.jpg'} alt="Ciao"  style={{ width: '300px' }} />
+
+
+Author: Davide Romano
