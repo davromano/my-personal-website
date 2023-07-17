@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import components from "../components/mdxMapping";
+import Seo from "../components/seo";
 
 const ProjectDetails = ({ data, children }) => {
   const { title } = data.mdx.frontmatter;
@@ -32,5 +33,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo title="Project" />;
 
 export default ProjectDetails;

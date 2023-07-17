@@ -9,10 +9,10 @@ module.exports = {
     extend: {},
     extend: {
       colors: {
-        'white-minsk':'#f1e8ea',
+        'white-minsk':'#f2ebec',
         'middle-minsk':'#c6beda',
         'dark-minsk':'#2f296d',
-        'red-highlight': '#b5446e',
+        'red-highlight': '#970C3F',
         'clicked-minsk': '#584cbd'
       },
     },

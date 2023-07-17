@@ -25,8 +25,8 @@ const IndexPage = ({ data }) => {
       >
         <div className="w-1/2 flex items-center justify-center -mt-32">
           <div className="mx-32">
-            <h1 className="font-bold w-64">Hi, I'm Davide Romano</h1>
-            <p>
+            <h1 className="font-bold w-80">Hi, I'm Davide Romano</h1>
+            <p className="text-xl">
               I am a Digital Humanities student at EPFL, Switzerland. I am
               particularly interested in the intersection of{" "}
               <span className="font-bold text-red-highlight">
