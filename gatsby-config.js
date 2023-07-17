@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Davide Romano",
+    description: `Portfolio website of Davide Romano, Digital Humanities student at EPFL`,
   },
   plugins: [
     {
