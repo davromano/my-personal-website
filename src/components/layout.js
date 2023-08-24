@@ -14,9 +14,9 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className=" bg-white-minsk md:bg-gradient-to-r from-dark-minsk to-white-minsk h-16 flex justify-center fixed top-0 w-full z-10">
+      <nav className=" bg-middle-minsk md:bg-gradient-to-r from-dark-minsk to-white-minsk md:to-70% h-16 flex justify-center fixed top-0 w-full z-10">
         <div
-          className="container mx-auto flex justify-between items-center text-dark-minsk"
+          className="container flex justify-between items-center text-dark-minsk"
           style={{ fontFamily: "tt-norms" }}
         >
           <Link to="/" className="hidden md:block text-white-minsk font-normal text-2xl">
