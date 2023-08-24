@@ -6,7 +6,6 @@ module.exports = {
   ],
   theme: {
     fontFamily: {},
-    extend: {},
     extend: {
       colors: {
         'white-minsk':'#f2ebec',
@@ -15,6 +14,9 @@ module.exports = {
         'red-highlight': '#970C3F',
         'clicked-minsk': '#584cbd'
       },
+      transitionProperty: {
+        'height': 'height'
+      }
     },
   },
   plugins: [],

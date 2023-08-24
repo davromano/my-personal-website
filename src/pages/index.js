@@ -20,30 +20,38 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle="Home Page">
       <div
-        className="flex h-screen text-dark-minsk"
+        className="flex flex-col lg:flex-row text-dark-minsk mx-4 w-4/5 lg:w-full"
         style={{ fontFamily: "tt-norms", height: "calc(100vh - 4rem)" }}
       >
-        <div className="w-1/2 flex items-center justify-center -mt-32">
-          <div className="mx-32">
-            <h1 className="font-bold w-80">Hi, I'm Davide Romano</h1>
-            <p className="text-xl">
+        <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32">
+          <div className="lg:mx-32">
+            {/* Only show h1 on larger screens */}
+            <h1 className="font-bold w-80 hidden lg:block">
+              Hi, I'm Davide Romano
+            </h1>
+            {/* Show text-xl on smaller screens */}
+            <h1 className="font-bold text-4xl lg:hidden mt-4">
+              Hi, I'm Davide Romano
+            </h1>
+            <p className="lg:text-xl text-base mt-4 lg:mt-0">
               I am a Digital Humanities student at EPFL, Switzerland. I am
               particularly interested in the intersection of{" "}
-              <span className="font-bold text-red-highlight">
+              <span className="lg:font-bold font-normal text-red-highlight">
                 user research
               </span>{" "}
               and{" "}
-              <span className="font-bold text-red-highlight">data science</span>
+              <span className="lg:font-bold font-normal text-red-highlight">data science</span>
               , as I believe that these two fields are closely linked and can be
               used together to drive{" "}
-              <span className="font-bold text-red-highlight">
+              <span className="lg:font-bold font-normal text-red-highlight">
                 informed decision making
               </span>
               .
             </p>
           </div>
         </div>
-        <div className="w-1/2 flex-col justify-center mt-32">
+
+        <div className="w-full lg:w-1/2 flex-col justify-center lg:mt-32 mt-8">
           <div className=" flex-col my-auto">
             <h2 className="text-2xl mb-3">Selected Projects</h2>
             {selectedProjects.map((node) => (
@@ -51,7 +59,7 @@ const IndexPage = ({ data }) => {
             ))}
             <Link
               to="/projects"
-              className=" text-dark-minsk hover:text-clicked-minsk hover:underline"
+              className=" text-dark-minsk hover:text-clicked-minsk hover:underline pb-5"
             >
               Or have a look at all projects
             </Link>

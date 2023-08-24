@@ -14,15 +14,15 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="bg-gradient-to-r from-dark-minsk to-white-minsk h-16 flex items-center fixed top-0 w-full z-10">
+      <nav className=" bg-white-minsk md:bg-gradient-to-r from-dark-minsk to-white-minsk h-16 flex justify-center fixed top-0 w-full z-10">
         <div
           className="container mx-auto flex justify-between items-center text-dark-minsk"
           style={{ fontFamily: "tt-norms" }}
         >
-          <Link to="/" className="text-white-minsk font-normal text-2xl">
+          <Link to="/" className="hidden md:block text-white-minsk font-normal text-2xl">
             Davide Romano
           </Link>
-          <div className="flex space-x-10 text-lg font-normal">
+          <div className="flex space-x-10 md:text-lg font-normal text-base justify-center mx-2">
             <Link
               to="/about"
               className="hover:text-clicked-minsk hover:underline"

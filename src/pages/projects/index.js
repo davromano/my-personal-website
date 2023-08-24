@@ -32,9 +32,10 @@ const ProjectsPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Projects">
-      <div className="text-dark-minsk w-4/5 items-center h-screen mt-14">
+      <div className="text-dark-minsk w-4/5 items-center justify-center h-screen md:mt-14 mt-5">
         <h1 style={{ fontFamily: "tt-norms" }}>Projects</h1>
-        <div className="mb-3">
+        {/* Only shows on larger screens */}
+        <div className="md:mb-3 md:mt-0 mt-6 mb-6 lg:block hidden">
           <ul className="flex space-x-4">
             {all_tags.map((tag) => (
               <button
@@ -43,6 +44,24 @@ const ProjectsPage = ({ data }) => {
                   selectedTags.includes(tag)
                     ? "bg-dark-minsk text-white-minsk"
                     : "bg-transparent border-middle-minsk  hover:bg-middle-minsk hover:text-dark-minsk"
+                } transition-all duration-300 ease-in-out`}
+                onClick={() => handleTagClick(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+          </ul>
+        </div>
+        {/* Only shows on small screens */}
+        <div className="md:mb-3 md:mt-0 mt-6 mb-6 justify-start lg:hidden">
+          <ul className="md:grid-rows-1 grid grid-cols-2 gap-x-2 gap-y-4">
+            {all_tags.map((tag) => (
+              <button
+                key={tag}
+                className={`border rounded-lg p-2 ${
+                  selectedTags.includes(tag)
+                    ? "bg-dark-minsk text-white-minsk"
+                    : "bg-transparent border-middle-minsk"
                 } transition-all duration-300 ease-in-out`}
                 onClick={() => handleTagClick(tag)}
               >

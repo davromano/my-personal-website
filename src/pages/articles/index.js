@@ -1,21 +1,28 @@
-import * as React from 'react'
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
-import { graphql } from 'gatsby'
+import * as React from "react";
+import Layout from "../../components/layout";
+import Seo from "../../components/seo";
+import { graphql } from "gatsby";
 
 const BlogPage = ({ data }) => {
-  const articles = data.allMdx.nodes.filter(node => node.fields.source === 'articles')
+  const articles = data.allMdx.nodes.filter(
+    (node) => node.fields.source === "articles"
+  );
 
   return (
     <Layout pageTitle="Articles">
-      <h1 style={{ fontFamily: 'tt-norms' }}>Still in development !</h1>
+      <h1
+        className="text-4xl pt-6 text-dark-minsk"
+        style={{ fontFamily: "tt-norms" }}
+      >
+        Articles
+      </h1>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
-    allMdx (sort: { frontmatter: { date: DESC }}) {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
         fields {
@@ -30,10 +37,10 @@ export const query = graphql`
       }
     }
   }
-`
-export const Head = () => <Seo title="Articles" />
+`;
+export const Head = () => <Seo title="Articles" />;
 
-export default BlogPage
+export default BlogPage;
 
 /*
 {

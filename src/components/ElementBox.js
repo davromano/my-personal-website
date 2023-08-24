@@ -15,15 +15,17 @@ const ElementBox = ({ node }) => {
 
   return (
     <div
-      className="bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 flex flex-col w-11/12 shadow transition duration-700 ease-in-out"
-      style={{ backgroundColor: isHovered ? "#c6beda" : "transparent" }}
+      className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 
+        flex flex-col lg:w-11/12 shadow transition-all duration-300 ${
+          isHovered ? "bg-middle-minsk md:h-52 h-56" : "bg-transparent md:h-28 h-32"
+        }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h2 className="text-2xl font-bold text-darkest-minsk font-tt-norms-pro self-start">
+      <h2 className=" text-xl md:text-2xl font-bold text-darkest-minsk font-tt-norms-pro self-start">
         <Link to={`/projects/${slug}`}>{title}</Link>
       </h2>
-      <ul className="text-lg font-normal text-darkest-minsk font-tt-norms-pro flex space-x-8">
+      <ul className=" text-base md:text-lg font-normal text-darkest-minsk font-tt-norms-pro flex space-x-8">
         {tags.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}
@@ -33,7 +35,7 @@ const ElementBox = ({ node }) => {
           <p className="flex space-x-2 text-sm">{node.excerpt}</p>
           <Link
             to={`/projects/${slug}`}
-            className="relative bottom-2 right-2 text-dark-minsk font-bold px-2 py-1"
+            className="relative bottom-2 right-2 text-dark-minsk font-bold px-2 pt-4"
           >
             For more
           </Link>

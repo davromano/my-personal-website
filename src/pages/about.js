@@ -12,11 +12,11 @@ const AboutPage = () => {
     <Layout pageTitle="About Me">
       <div
         style={{ fontFamily: "tt-norms" }}
-        className="flex-col items-center justify-center w-3/5 mt-12"
+        className="flex-col items-center justify-center w-4/5 md:w-3/5 mt-12"
       >
-        <h1 className="text-4xl pb-6">About me</h1>
-        <div className="flex space-x-8">
-          <div className="w-1/2">
+        <h1 className="text-4xl pb-6 text-dark-minsk">About me</h1>
+        <div className="md:flex md:space-x-8">
+          <div className="md:w-1/2">
             <StaticImage
               src="../images/me-other-photo.jpg"
               alt="Davide Romano profile photo"
@@ -26,8 +26,8 @@ const AboutPage = () => {
               className="shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105 pb-6"
             />
           </div>
-          <div className="text-lg text-dark-minsk w-1/2">
-            <p className="">
+          <div className="text-lg text-dark-minsk md:w-1/2 md:mt-0 mt-4">
+            <p className="pb-3 md:pb-0">
               Hi there! I'm Davide, a 1st year Digital Humanities student at
               EPFL. I am mainly interested in UX design and data science.
             </p>
