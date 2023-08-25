@@ -18,8 +18,8 @@ const ElementBox = ({ node }) => {
       className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 
         flex flex-col lg:w-11/12 transition-all duration-300 ${
           isHovered
-            ? " md:h-1/4 h-1/3"
-            : " md:h-1/6 h-1/6"
+            ? " md:h-56 h-fit"
+            : " md:h-36 h-fit"
         }`}
       style={{ backgroundColor: isHovered ? "#c6beda" : "transparent" }}
       onMouseEnter={handleMouseEnter}
@@ -38,7 +38,7 @@ const ElementBox = ({ node }) => {
           <p className="flex space-x-2 text-sm">{node.excerpt}</p>
           <Link
             to={`/projects/${slug}`}
-            className="relative bottom-2 right-2 text-dark-minsk font-bold px-2 pt-4"
+            className="relative bottom-2 right-2 text-dark-minsk font-bold px-2 pt-3"
           >
             For more
           </Link>

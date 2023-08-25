@@ -30,7 +30,7 @@ const IndexPage = ({ data }) => {
               Hi, I'm Davide Romano
             </h1>
             {/* Show text-xl on smaller screens */}
-            <h1 className="font-bold text-4xl lg:hidden mt-4">
+            <h1 className="font-bold text-4xl lg:hidden mt-6">
               Hi, I'm Davide Romano
             </h1>
             <p className="lg:text-xl text-base mt-4 lg:mt-0">
@@ -40,7 +40,9 @@ const IndexPage = ({ data }) => {
                 user research
               </span>{" "}
               and{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">data science</span>
+              <span className="lg:font-bold font-normal text-red-highlight">
+                data science
+              </span>
               , as I believe that these two fields are closely linked and can be
               used together to drive{" "}
               <span className="lg:font-bold font-normal text-red-highlight">
@@ -51,19 +53,17 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex-col justify-center lg:mt-32 mt-8">
-          <div className=" flex-col my-auto">
-            <h2 className="text-2xl mb-3">Selected Projects</h2>
-            {selectedProjects.map((node) => (
-              <ElementBox key={node.id} node={node} />
-            ))}
-            <Link
-              to="/projects"
-              className=" text-dark-minsk hover:text-clicked-minsk hover:underline pb-5"
-            >
-              Or have a look at all projects
-            </Link>
-          </div>
+        <div className="lg:w-1/2 lg:mt-32 mt-8">
+          <h2 className="text-2xl mb-3">Selected Projects</h2>
+          {selectedProjects.map((node) => (
+            <ElementBox key={node.id} node={node} />
+          ))}
+          <Link
+            to="/projects"
+            className=" text-dark-minsk hover:text-clicked-minsk hover:underline pb-5"
+          >
+            Or have a look at all projects
+          </Link>
         </div>
       </div>
     </Layout>
