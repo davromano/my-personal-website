@@ -35,7 +35,7 @@ const ElementBox = ({ node }) => {
       </ul>
       {isHovered && (
         <>
-          <p className="flex space-x-2 text-sm">{node.excerpt}</p>
+          <p className="flex space-x-2 text-sm">{node.frontmatter.desc}</p>
           <Link
             to={`/projects/${slug}`}
             className="relative bottom-2 right-2 text-dark-minsk font-bold px-2 pt-3"

@@ -49,8 +49,8 @@ const AboutPage = () => {
         >
           <p className="pb-3">
             I was born in Rapallo, a small city close to Genoa, Italy. Some
-            people know it because it's close to Portofino! It's a beautiful
-            time but I've always felt it was a bit small for me :O
+            people know it because it's close to Portofino. It's a beautiful
+            city but I've always felt it was a bit small for me :O
           </p>
           <p className="pb-3">
             Since when I was in high school I was always interested in two

@@ -13,7 +13,7 @@ const ProjectsPage = ({ data }) => {
 
   const handleTagClick = (tag) => {
     console.log(selectedTags); // Print the updated selectedTags array
-    
+
     setSelectedTags((prevSelectedTags) => {
       if (prevSelectedTags.includes(tag)) {
         return prevSelectedTags.filter((selectedTag) => selectedTag !== tag);
@@ -21,9 +21,6 @@ const ProjectsPage = ({ data }) => {
         return [...prevSelectedTags, tag];
       }
     });
-
-    
-
   };
 
   const selectedProjects = projects.filter((node) =>
@@ -53,7 +50,7 @@ const ProjectsPage = ({ data }) => {
           </ul>
         </div>
         {/* Only shows on small screens */}
-        <div className="md:mb-3 md:mt-0 mt-6 mb-6 justify-start lg:hidden">
+        <div className="md:mb-3 md:mt-0 mt-6 mb-8 justify-start lg:hidden ">
           <ul className="md:grid-rows-1 grid grid-cols-2 gap-x-2 gap-y-4">
             {all_tags.map((tag) => (
               <button
@@ -90,6 +87,7 @@ export const query = graphql`
           title
           slug
           tags
+          desc
         }
         excerpt
       }

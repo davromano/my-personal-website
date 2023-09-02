@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className=" bg-nav-mobile-minsk md:bg-gradient-to-r from-dark-minsk to-white-minsk md:to-70% h-16 flex justify-center fixed top-0 w-full z-20">
+      <nav className=" bg-nav-mobile-minsk md:bg-gradient-to-r from-dark-minsk to-white-minsk md:to-90% h-16 flex justify-center fixed top-0 w-full z-20">
         {/* Mobile Code */}
         <div className="container flex justify-between items-center text-dark-minsk md:hidden">
           <Link

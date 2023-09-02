@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby";
 import ElementBox from "../components/ElementBox";
 
 const IndexPage = ({ data }) => {
-  const sourcesToFilter = ["montrosa", "clothesline", "voice"];
+  const sourcesToFilter = ["montrosa", "spotify", "manhattan"];
   const selectedArticles = data.allMdx.nodes.filter(
     (node) =>
       sourcesToFilter.includes(node.frontmatter.slug) &&
@@ -83,6 +83,7 @@ export const query = graphql`
           title
           slug
           tags
+          desc
         }
         excerpt
       }

@@ -3,8 +3,106 @@ title: "Spotify Podcasts"
 slug: "spotify"
 tags:
   - Data Science
+desc: "Data mining exploration of a Spotify podcasts dataset through text network analysis that resulted in new inspiring hypotheses for further research. "
 ---
 
-<p className="justify-center text-lg text-dark-minsk" style={{ fontFamily: 'tt-norms' }}>Work in progress!</p> 
+import Summary from '../src/components/Summary';
 
-<p className="justify-center text-lg text-dark-minsk" style={{ fontFamily: 'tt-norms' }}>I am writing this article!</p> 
+
+<Summary>
+- Exploration of an extensive dataset of podcasts transcripts through text network analysis that resulted in new inspiring hypotheses for further research. 
+- Experimentation of a method that could be used for topic modeling, community detection, document clustering and visualization. 
+- How to carefully interpret the data by taking into consideration aspects about algorithm design (e.g parameters choice), social, linguistic and thematic aspects.
+</Summary>
+
+## Introduction
+
+For the course DH-500 Computational Social Media of the professor Gatica-Perez Daniel. The course has a interdisciplinary approach, as it integrates media studies, machine learning, network sciences to explore and comprehend social phenomenons. Our focal point was the application of computational methodologies to datasets sourced from social media platforms.
+With my teammates Mariella Daghfal and Cindy Tang we focused on the Spotify Podcasts dataset, owned directly by Spotify. Before starting the research, we delineated relevant legal guidelines and ethical codes for the project. Due to this reason, I won't explain in details the results and the data.
+
+## Motivation
+
+Our dataset contains transcripts of an extensive group of podcasts shows belonging to a wide range of genres and categories.
+We wanted to investigate the ways in which different categories differ linguistically, how the podcasts are interrelated in terms of their vocabulary usage and how diverse it is between different categories of podcasts.
+To answer these questions, we decided to use a particular tool called Text Network Analysis.
+
+## Data
+
+Our dataset contains more than 100k podcasts that were sampled randomly from different categories. The dataset was filtered by length and speech ratio (to remove music podcasts or others).
+The podcasts exhibit diverse structural formats, featuring varying numbers of speakers, levels of formality, and presentation styles, including scripted, improvised, narrative, conversational, and debate formats
+The dataset featured 100+ categories and the episodes were coming from the anglo-saxon world, mainly USA and Great Britain.
+
+Our first data engineering problem was to group the 100+ categories into a reasonable amount for our research, as there were many categories resembling the same field. We manually grouped the categories into 21 groups that we used in our research.
+Some categories had much more episodes than others, and this will be a problem for our method later on.
+
+## Methods
+
+Our method is based on the library Textnets that performs text network analysis on a corpus of text.
+A network-based strategy for automated text analysis has many benefits. 
+
+Understanding patterns of connections between words helps to define their meaning more precisely than "bag of words" techniques, just as clusters of social relationships can explain a variety of outcomes, such as friendships, affiliations, or other types of social relationships. 
+Through the visualization of the network we can explore the relationships between the various podcasts with more detail, and we are able to find those cases that do not fit in a specific topic or cluster.
+
+To address the problem of the imbalance of episodes and because of computational power limits, for each category we sampled the top 50 podcasts, ordered by the number of episodes, and for each podcast around 10 random episodes. In a few categories, the number of podcasts is even less than 50, but this applies only to a minority of the categories.
+Note well that the frequency of episodes it's not a representative feature of popularity, however we take this as an assumption for our model.
+
+Before using the text analysis method, we ran a classic text pre-processing pipeline. 
+Textnets library will create an adjacency matrix and the final output of the Textnets library consists of a graph where the edges weights are calculated according to TF-IDF for overlapping terms between two documents.
+Once the text networks are built, we employ visualization techniques to gain insights into their structure and relationships. 
+
+To visualize better the results, there is a parameter inside the function that trims the edges that have a smaller weight.
+The library will also determine clusters of documents through the Louvain community detection algorithm and each podcast will be assigned to one of the clusters.
+
+Furthermore, it's possible to output the words with the ten highest TF-IDF frequencies within each cluster.
+Measures such as closeness centrality and betweenness centrality are also used to assess node importance, network connectivity, and community structure.
+
+## Results
+
+To connect the questions we wanted to answer and our results, we considered the presence or not of clusters in the network and the connectivity between clusters as proxies for interpreting linguistic and stylistic content diversity within the podcasts.
+But an important question to think upon was if the creation of the clusters is only due to a thematic difference: subtopics in a topic that are detected by the algorithm.
+
+Detecting the difference between thematic and linguistic difference is a hard task. What we've done was to qualitatively look at the top 10 words and podcasts names for each cluster. From this qualitative analysis, we were able to formulate a potential answer to this question.
+The results were vastly different for each category. The Louvain algorithm most of the times created coherent and meaningful clusters.
+
+Our analysis brought us to the classification of these text networks in Separated clusters and Mixed clusters based on their inter-cluster connectivity.
+Separated clusters are those that have weak connections between them and are clearly separated, while Mixed clusters are highly interconnected and hardly separable.
+
+One example of a Separated clusters is the Religion & Spirituality category while Business category is an example for Mixed clusters.
+By looking at the top words we can qualitatively determine that the clusters are defined based on a thematic - and consequently linguistically - difference: Spirituality, Judaism and Christianity.
+
+<img src={'/spotify_religion_graph.png'} alt="Ciao"  style={{ width: '300px ' }} className="mb-4"/>
+
+In the case of Business the subtopics observed by the wordclouds are defined and coherent, however the network is highly interconnected.
+
+<img src={'/spotify_business_graph.png'} alt="Ciao"  style={{ width: '400px' }} className="mb-4"/>
+<img src={'/spotify_business_words.png'} alt="Ciao"  style={{ width: '400px' }} className="mb-4"/>
+
+This can bring us to two possible hypothesis: all business podcasts talk about a wide range of "subtopics". The second hypothesis suggests that the business domain employs a range of common words that are used across different situations and subtopics. Is therefore "business language" always the same?
+These are just two examples of possible interpretations of the results. 
+
+There are many other networks that could be further explored like the one we created by putting together different categories in one network.
+
+<img src={'/spotify_final_network.png'} alt="Ciao"  style={{ width: '400px' }} className="mb-4"/>
+
+## Insights & Challenges
+
+**The right questions with the right dataset**: As with the project about the Voices of the Manhattan Project, I've learned the important lesson that the hypotheses and the questions we want to ask are super important. That's the first step for directing our attention towards something more specific. At the end this project was focusing more on data mining and descriptive analytics. In our case, we chose the dataset and we thought of what could possibly be interesting in this dataset, while in most cases it's the opposite. You ask the question first.
+
+**Data mining as inspiration**: Our results could lead us everywhere and nowhere. What we got was inspired, and that's what I think data mining can do. This was the first step towards the deep analysis of this huge dataset. We started with some hypothesis but we ended with more.
+
+**Algorithm/parameter design matters**: In the interpretation I learned to always keep in mind the small decisions taken for the algorithm design. Our visualization was dependent on a small parameter that dictated which edges would be visualized and which not. That's relevant for the interpretation. Our sampling of the episodes was based on the most frequent shows for each category. That's relevant for the interpretation. 
+
+## Inspiration for the future
+
+I discovered text network analysis and it was an interesting method to work with. However, I would be interested in testing on the same dataset topic modeling or latent semantic analysis (LSA).
+
+It would be interesting to apply Name Entity Extraction on a chosen subset of celebrities in a specific category of podcast. This together with sentiment analysis could be a proxy for podcast "polarization".
+
+With NER would be also interesting to extract the entities and then create a network of co occurrence of these people.
+
+Use more methods on the same category (e.g. Business) to answer with more certainty the possible hypothesis that business language has terms vastly used in different subtopics.
+
+
+<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Cindy Tang, Mariella Daghfal</p>
+
+<p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>
