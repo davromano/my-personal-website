@@ -11,11 +11,11 @@ date: "2024-01-01"
 import Summary from '../src/components/Summary';
 
 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
-  <img src='/ada_Personas_male_female.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
-  <img src='/ada_female.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
-  <img src='/ada_Personas_gender_genre.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_Personas_male_female.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}  className="w-full md:block hidden"/>
+  <img src='/ada_female.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}  className="w-full md:block hidden"/>
+  <img src='/ada_Personas_gender_genre.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}  className="w-full md:block hidden"/>
 
-  <img src='/ada_wordcloud_personas.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_wordcloud_personas.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}  className="w-full md:block hidden"/>
 </div>
 
 <p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px', paddingTop: '10px' }}>Link to the project page:</p>
@@ -36,24 +36,22 @@ The project was done in team with Yanzi Liu, Ke Li, Mehdi Elbouari and Jiaming J
 
 <img src={'/ada_network.gif'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-2"/>
 
-<p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '40px' }}>Interactive plot of the Hunger Games characters network</p>
+<p className="text-dark-minsk text-lg text-center"  style={{ fontFamily: 'tt-norms', paddingBottom: '40px' }}>Interactive plot of the Hunger Games characters network</p>
 
-
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px', paddingBottom: '10px'}}>
-  <img src='/ada_male.png' alt='Male' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<div className="grid grid-cols-1 md:grid-cols-2 gap-20 sm:w-full md:w-1/2 max-w-screen-lg mx-auto pb-10">
+  <img src='/ada_male.png' alt='Male' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
   <img src='/ada_female.png' alt='Female' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
 </div>
 
 <p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '40px' }}>Verb clustering of gender interactions</p>
 
-
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px', paddingBottom: '10px'}}>
-  <img src='/ada_crime_main.png' alt='Main' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
-  <img src='/ada_crime_side.png' alt='Side' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<div className="grid grid-cols-1 md:grid-cols-2 gap-20 sm:w-full md:w-1/2 max-w-screen-lg mx-auto pb-10">
+  <img src='/ada_crime_main.png' alt='Main' className="w-full shadow-lg mb-4" style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+  <img src='/ada_crime_side.png' alt='Side' className="w-full shadow-lg" style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
 </div>
 
 <p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '30px' }}>Verb clustering between main and side characters</p>
 
-<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Yanzi Liu, Ke Li, Mehdi Elbouari and Jiaming Jaing</p>
+<p className="text-dark-minsk justify-center text-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Yanzi Liu, Ke Li, Mehdi Elbouari and Jiaming Jaing</p>
 
 <p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>

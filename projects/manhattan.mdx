@@ -12,13 +12,16 @@ date: "2023-07-01"
 import Summary from '../src/components/Summary';
 
 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
-  <img src='/manhattan-years.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/manhattan-years.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
 
-  <img src='/manhattan-test.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
-  <img src='/manhattan-bar.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
-  <img src='/manhattan-lda.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/manhattan-test.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
+  <img src='/manhattan-bar.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
+  <img src='/manhattan-lda.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
 
 </div>
+
+<img src='/manhattan-test.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full sm:block md:hidden"/>
+
 
 <Summary>
 - Implementation of topic modeling and NER on a historical dataset containing 600+ interview transcripts of people who experienced the Manhattan Project.

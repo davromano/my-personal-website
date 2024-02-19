@@ -11,13 +11,15 @@ date: "2023-07-01"
 import Summary from '../src/components/Summary';
 
 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
-  <img src='/spotify_business_graph.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/spotify_business_graph.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
 
-  <img src='/spotify_business_words.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/spotify_business_words.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full md:block hidden"/>
 </div>
+<img src='/spotify_business_graph.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="w-full sm:block md:hidden"/>
+
 <div className="mt-4"/>
 <img src={'/spotify-big-network.png'} alt="Ciao"  style={{ width: '800px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
-<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Religion podcasts network showing betweeneess centrality of nodes, clusters are colors</p>
+<p className="text-dark-minsk text-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Religion podcasts network showing betweeneess centrality of nodes, clusters are colors</p>
 
 <Summary>
 - Exploration of an extensive dataset of podcasts transcripts through text network analysis that resulted in new inspiring hypotheses for further research. 
@@ -72,11 +74,8 @@ By looking at the top words we can qualitatively determine that the clusters are
 
 In the case of Business the subtopics observed by the wordclouds are defined and coherent, however the network is highly interconnected.
 
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
-
-  <img src={'/spotify_business_graph.png'} alt="Ciao"  style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
-  <img src={'/spotify_business_words.png'} alt="Ciao"  style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
-</div>
+<img src={'/spotify_business_graph.png'} alt="Ciao"  style={{ width: '500px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
+<img src={'/spotify_business_words.png'} alt="Ciao"  style={{ width: '500px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
 This can bring us to two possible hypothesis: all business podcasts talk about a wide range of "subtopics". The second hypothesis suggests that the business domain employs a range of common words that are used across different situations and subtopics. 
 
 *Is therefore "business language" always the same?*

@@ -14,9 +14,9 @@ import Summary from '../src/components/Summary';
 <source src="/music-video.mp4" type="video/mp4"/>
 </video>
 
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '700px', paddingBottom: '10px', paddingTop:'20px'}}>
-  <img src='/music-ioi.png' alt='Main' style={{ width: '100%'}} />
-  <img src='/music-similarity.png' alt='Side' style={{ width: '100%'}} />
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '700px', paddingBottom: '10px', paddingTop:'20px'}} className="w-full md:block hidden">
+  <img src='/music-ioi.png' alt='Main' style={{ width: '100%'}} className="w-full md:block hidden"/>
+  <img src='/music-similarity.png' alt='Side' style={{ width: '100%'}} className="w-full md:block hidden"/>
 </div>
 
 <Summary>
@@ -62,10 +62,9 @@ In this case, we used a Generative Adversarial Network (GAN) model.
 
 Here are our results:
 
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '700px', paddingBottom: '10px'}}>
-  <img src='/music-results1.png' alt='Main' style={{ width: '100%'}} />
-  <img src='/music-distribution-note.png' alt='Side' style={{ width: '100%'}} />
-</div>
+<img src='/music-results1.png' alt='Main' style={{ width: '300px'}} className="mb-4"/>
+<img src='/music-distribution-note.png' alt='Side' style={{ width: '350px'}} />
+
 It's promising that the average min distance for the GAN model is much closer to the real dataset distance than the random model. However, the SD of our model is far lower compared to the real dataset, this could mean that our results are all quite similar to each other.
 
 We can observe that in general our model has the same distribution of notes duration, even if there is a tendency towards producing more 1/8th notes, compared to the original dataset where there are more 1/16th notes.
@@ -111,6 +110,6 @@ Here is an example of our music generation.
 
 **ML application process**: I noticed how important is to methodically track each step in the process. It's not solely about the model or technique; equally crucial are decisions regarding data encoding and the choice of evaluation metrics.
 
-<p className="text-dark-minsk justify-center pt-4"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Barbara Ruvolo, Jeremi Do Dinh, Mengjie Zou</p>
+<p className="text-dark-minsk justify-center text-center pt-4"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Barbara Ruvolo, Jeremi Do Dinh, Mengjie Zou</p>
 
 <p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>

@@ -12,7 +12,7 @@ const ProjectDetails = ({ data, children }) => {
     <Layout>
       <br />
       <h3
-      className="  text-dark-minsk"
+      className="  text-dark-minsk text-center"
         style={{ fontFamily: "tt-norms", fontSize: "3.75rem" }}
       >
         {title}

@@ -13,10 +13,11 @@ date: "2023-07-01"
 import Summary from '../src/components/Summary';
 
 <img src={'/montrosa_photo_me.jpg'} alt="Ciao"  style={{ width: '500px' }} className="mb-4"/>
+<img src='/keyword-selection.png' alt='Main' style={{ width: '100%'}} className="w-full sm:block md:hidden"/>
 
 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '700px', paddingBottom: '10px'}}>
-  <img src='/keyword-selection.png' alt='Main' style={{ width: '100%'}} />
-  <img src='/generated-results-ipad.png' alt='Side' style={{ width: '100%'}} />
+  <img src='/keyword-selection.png' alt='Main' style={{ width: '100%'}} className="w-full md:block hidden"/>
+  <img src='/generated-results-ipad.png' alt='Side' style={{ width: '100%'}} className="w-full md:block hidden"/>
 </div>
 
 <Summary>
