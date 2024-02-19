@@ -8,10 +8,10 @@ module.exports = {
     fontFamily: {},
     extend: {
       colors: {
-        'white-minsk':'#f2ebec',
+        'white-minsk':'#f5f5f5', /** Old minsk f0ebec */
         'middle-minsk':'#c6beda',
         'dark-minsk':'#2f296d',
-        'red-highlight': '#970C3F',
+        'red-highlight': '#B5446E',
         'clicked-minsk': '#584cbd',
         'nav-mobile-minsk':'#cec7df',
       },

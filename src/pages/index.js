@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby";
 import ElementBox from "../components/ElementBox";
 
 const IndexPage = ({ data }) => {
-  const sourcesToFilter = ["montrosa", "spotify", "manhattan"];
+  const sourcesToFilter = ["movie", "ethical-guidance", "countastic"];
   const selectedArticles = data.allMdx.nodes.filter(
     (node) =>
       sourcesToFilter.includes(node.frontmatter.slug) &&
@@ -26,27 +26,26 @@ const IndexPage = ({ data }) => {
         <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32">
           <div className="lg:mx-32">
             {/* Only show h1 on larger screens */}
-            <h1 className="font-bold w-80 hidden lg:block">
+            <h1 className="font-bold w-120 hidden lg:block text-6xl mb-4">
               Hi, I'm Davide Romano
             </h1>
             {/* Show text-xl on smaller screens */}
             <h1 className="font-bold text-4xl lg:hidden mt-6">
               Hi, I'm Davide Romano
             </h1>
-            <p className="lg:text-xl text-base mt-4 lg:mt-0">
+            <p className="lg:text-xl text-base mt-6 lg:mt-0">
               I am a Digital Humanities student at EPFL, Switzerland. I am
-              particularly interested in the intersection of{" "}
+              particularly interested in anything related with{" "}
               <span className="lg:font-bold font-normal text-red-highlight">
-                user research
+                Data Science
+              </span>
+              ,{" "}
+              <span className="lg:font-bold font-normal text-red-highlight">
+                User Research
               </span>{" "}
               and{" "}
               <span className="lg:font-bold font-normal text-red-highlight">
-                data science
-              </span>
-              , as I believe that these two fields are closely linked and can be
-              used together to drive{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">
-                informed decision making
+                Product Management
               </span>
               .
             </p>

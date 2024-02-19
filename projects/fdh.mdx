@@ -1,0 +1,101 @@
+---
+title: "Ethical Guidance of AI"
+slug: "ethical-guidance"
+tags:
+  -  Data Science
+desc: "Developed a RL from AI Feedback pipeline by replicating Anthropic's 2021 publication 'Constitutional AI'. This project aimed at ethically guiding the Llama-7b-chat model through a set of predefined principles."
+date: "2024-01-01"
+
+
+---
+import Summary from '../src/components/Summary';
+
+<img src={'/FDH-pipeline.png'} alt="Ciao" style={{ width: '900px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)' }} className="mb-2"/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>The entire RLAIF pipeline designed by Anthropic that we replicated</p>
+
+<div className="mb-4"/>
+
+<u className="text-dark-minsk text-xl"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px' }}><a href="https://fdh.epfl.ch/index.php/Ethical_Guidance_of_LLMs">Report</a></u>
+<p className="text-dark-minsk text-sm"  style={{ fontFamily: 'tt-norms', paddingBottom: '30px' }}>Accessible only through EPFL network</p>
+<u className="text-dark-minsk text-xl"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px' }}><a href="https://github.com/arundhatibala/UCAI">GitHub Repository</a></u>
+
+
+
+<Summary>
+- Developed the entire RLAIF pipeline with llama-7b and gpt2 models, including Supervised fine-tuning, Reward Model and Reinforcement Learning parts, all done through the TRL library.
+- Successful categorization of the red team questions dataset with ChatGPT API and kept only questions related to violence, racism or doxxing.
+- Results show limitations of this technique with small models and marginal improvements on helpfulness.
+</Summary>
+
+The goal of the project was to build ourselves the popular
+<u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://arxiv.org/abs/2212.08073">pipeline developed by Anthropic</a></u>.
+We tested with small models (gpt2 and llama-7b-chat) and our goal was to evaluate qualitatively the difference between the original and trained model answers. 
+
+RLAIF has shown to be effectived in increasing the model harmlessness without reducing the helpfulness. Helpfulness increase when the model answers are not evasive (e.g."I can't answer this question").
+
+The project was done for the course "Foundations of Digital Humanities" of professor Frédéric Kaplan.
+
+Let's now delve into the pipeline.
+
+### Data preprocessing
+
+<img src={'/fdh-gpt.png'} alt="Ciao"  style={{ width: '700px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+Due to limited computational resources, we wanted to trim the number of the 
+<u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://github.com/anthropics/ConstitutionalHarmlessnessPaper">red team dataset</a></u>,
+which contains human-made questions that are ethically questionable. It's used as a benchmark to test LLM models alignment. 
+
+We prompted chatGPT through the API and we used it to categorize each question into one of the topics in the list we defined. We focused on violence, doxxing and racism. 
+
+### 1. Supervised fine-tuning
+
+#### Revised answers dataset
+
+This is the first step in the Supervised fine-tuning section. Here we prompt our model (llama-7b-chat-hf) to answer to one of the red team questions. 
+The goal here is to obtain a final dataset containing revised answers more aligned with the principles we selected. Here is an example:
+<img src={'/critique_rev.png'} alt="Ciao"  style={{ width: '350px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Critique-revision loop</p>
+
+#### SL model training
+We use the red team questions plus the revised answers to create a training dataset for fine-tuning our model. We used the library
+<u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://huggingface.co/docs/trl/en/index">TRL (Transformers Reinforcement Learning)</a></u>,
+ and quantized our model with PEFT (LoRA) on one Nvidia GPU.
+<img src={'/fdh-supervised.png'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+### 2. Reward Model
+
+In this second phase, the goal is to create a model that takes a prompt and an answer as input and returns a score based on how much ethical is the answer given certain principles (predefined by us).
+
+#### Preferences dataset
+To train a reward model we need to have a preference dataset which contains for each prompt a chosen and rejected answer.
+
+Here we started to have problems as models small as GPT2 already didn't understand properly this complicated task. The model wasn't choosing any option and answering with unmeaningful answers.
+Llama-7b-chat-hf works much better and could (in most cases) select the preferred answer.
+<img src={'/fdh-pref-model-dataset.png'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Prompt template for preference generation</p>
+
+#### RM training
+After creating the preferences dataset, we can train our model on this dataset using the loss function in the slide and setting the output as a scalar value between 0 and 1.
+<img src={'/fdh-pref-training.png'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+### 3. Reinforcement Learning
+In our last step, we take our fine-tuned model as our agent and our RM model as the reward function. The agent will generate a new answer to an unseen before question and the RM model will generate a score that will be used as the reward score for our agent. All this was done again through the TRL library functions.
+<img src={'/fdh-reinforcement.png'} alt="Ciao"  style={{ width: '400px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+### Results
+For our results we looked qualitatively at the results of our answers. Overall the results are not distinguishable from the original model. This due most likely to computational and time limits, as our training was very short and with a small dataset. 
+
+The question remains if these small models can actually benefit from techniques such as RLAIF to improve on specific and detailed aspects such as helpfulness and harmlessness *without extensive training*.
+Here is an example of answer:
+<img src={'/fdh-results.png'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Questions are ethically problematic to test our model's alignment</p>
+
+Unfortunately, our results weren't so satisfying. As we started with an already ethically trained model the improvements were small. Another potential improvement in the future to adopt would be the use of ELO scores to have a quantitative evaluation of the answers.
+
+<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Arundhati Balasubramaniam, Carolina Marugan Rubio</p>
+
+<p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>
+
+<div className="mb-4"></div>
+<div className="mb-4"></div>
+<div className="mb-4"></div>
+

@@ -1,4 +1,4 @@
 
-const all_tags = ['User Research', 'Data Science', 'Interaction Design'];
+const all_tags = ['Data Science', 'Product Management', 'UX/UI Design'];
 
 export { all_tags };

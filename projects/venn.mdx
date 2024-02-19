@@ -2,129 +2,115 @@
 title: "Venn"
 slug: "venn"
 tags:
-  - User Research
-  - Interaction Design
+  - UX/UI Design
 desc: "Following a design process from research to prototyping, we designed Venn, a music streaming app. Venn lets users discover their preferences with highlighted music tags. This new musical awareness encourages a personalized discovery, as users dynamically engage with the improved recommendation algorithm."
+date: "2023-07-01"
 
 ---
 
 import Summary from '../src/components/Summary';
 
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' , width: '650px'}}>
+  <img src='/venn-top3.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/venn-top1.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/venn-top2.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+</div>
+
 <Summary>
-- Designed a music streaming app, starting from research to prototyping in Figma
+- Designed a music streaming app to ease the discovery of new genres and music through tags
 - Gathered important insights through domain research and competitive analysis
 - Applied important UI and visual design principles to our prototype
 </Summary>
 
 ## Introduction
-This project was undertaken as part of the Interaction Design course at EPFL. Our focus was on crafting an innovative music streaming app, addressing pain points and enhancing existing platforms like Spotify. Our project followed four core steps:
+This project was done as part of the Interaction Design course at EPFL in Spring 2023. Our project followed four core steps:
 
-1 - Domain research and competitive analysis, culminating in a Design Problem Statement (DPS) as the outcome.
+1 - **Domain research**, **competitive analysis** and Design Problem Statement (DPS).
 
-2 - User research consisting of 6 interviews, leading to a post-interview analysis of the collected data.
+2 - User research consisting of **6 interviews** & post-interview analysis.
 
-3 - Crafting context scenarios and requirements, resulting in a vision statement, 3 scenarios, and a task tree.
+3 - **Context scenarios**, **requirements**, **vision statement**, **task tree**.
 
-4 - Design of Digital Prototype
+4 - **Digital Prototype**
 
 ## Domain research & Competitive Analysis
 
-We started with brainstorming possible questions and directions worth researching on. Here are some notes made by my team.
-
-We explored how mood and habits affect the experience, how people share and discover music through friends, how people search and discover music.
-
-One important resource was the Spotify Research papers and articles, as they are often the pioneers of new features in streaming services. 
-Starting from <u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://research.atspotify.com/2021/07/user-intents-and-satisfaction-with-slate-recommendations/">User Intents and Satisfaction with Slate Recommendations</a></u>
-where they explore intentions of users using Spotify or the experimentation with <u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://research.atspotify.com/2021/04/contextual-and-sequential-user-embeddings-for-music-recommendation/">Contextual and Sequential User Embeddings for Music Recommendation</a></u>.
-
-A paper that really inspired us was a design workshop to <u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://research.atspotify.com/2020/05/giving-voice-to-silent-data-designing-with-personal-music-listening-history/">enhance spotify personalized recommendations with  a voice assistant</a></u>. 
-This paper results were personal data helps people reflect on their identities as listeners, Showing metadata to the user could have positive effects. In general voice assistants could be kind of "music coaches". The “music coach” could give some insights to the user about their habits or explain those suggestions.
+One important resource was the Spotify Research papers and articles, as they have explored <u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://research.atspotify.com/2021/07/user-intents-and-satisfaction-with-slate-recommendations/">user intentions</a></u>
+and how <u className="text-dark-minsk"  style={{ fontFamily: 'tt-norms' }}><a href="https://research.atspotify.com/2020/05/giving-voice-to-silent-data-designing-with-personal-music-listening-history/">showing personal data helps people reflect on their identities as listeners</a></u>.
 
 By reading these articles and many more, we synthetized our knowledge in 3 main insights: 
 
-1 - Music information: Users require specific details about their music like genre, year, artist, and more to comprehend their preferences and discover new songs.
+1 - **Music information**: Users require specific details about their music like genre, year, artist, and more to comprehend their preferences and discover new songs.
 
-2 - Feedback changes user behavior: Spotify noticed that user behavior shifts when exposed to their listening statistics, the possibly due to a mismatch with their personality.
+2 - **Feedback changes user behavior**: User behavior shifts when exposed to their listening statistics, possibly due to a mismatch with their personality.
 
-3 - Active Discovery: People - in certain situations - would like to direct their discovery sessions in a specific direction, like a specific genre or mood.
-
-At this point, the direction was towards an application that could show the music information (genres above all), use this information to help the user interact with the recommendation system and discover new music more effectively. Finally, giving periodic feedback on the music habits to make the user aware of their tastes.
-
-We then performed a competitive analysis focusing on the availability of music attributes, possibility of interaction with the recommendations and overall tools the competitors give to make discovery effortless. We made a CA map based on these characteristics. We looked at Spotify, Soundcloud, Youtube Music, Bandcamp and Apple music.
+3 - **Active Discovery**: People - in certain situations - have the intention to direct their discovery sessions in a specific direction, like a specific genre or mood.
 
 ## User interviews
-We defined a persona hypothesis table and the hypotheses we want to explore.
-
-<img src={'/venn-table.png'} alt="Ciao"  style={{ width: '700px' }} className="mb-4"/>
+<img src={'/venn-table.png'} alt="Ciao"  style={{ width: '700px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Persona hypothesis table</p>
 
 We thought of two main behavioural variables: low/high effort in discovery and their musical knowledge.
 
 A high-effort person actively discovers new things in their free time, while a low-effort person prefers passive exploration using recommendation systems. The latter group, called "habitual" users, mostly listens to familiar music.
 
-Then we also defined possible behaviors that could indicate their effort in discovery and possible places to find them.
-
 Some insights we discovered were:
 
 
 
-1 - Discovery of music is a desire of many users but different people will put a different “quantity” of effort in this part and will use different strategies to reach this goal
+1 - Music discovery is a desire of many users but different people will put more or less effort in it and will use **different strategies** to reach this goal.
 
-2 - Expression of personal music taste is difficult
+2 - Expressing in words personal music taste can be difficult.
 
-3 - Users sessions can be (roughly) divided into discovery sessions and habitual listening sessions
-
-4 - Current discovery tools are limiting the user
-
-## Context scenarios and task tree
-
-Having done a brief document with interviews analysis, we created 3 context scenarios and a vision statement:
-
-"The new design of Spotify will help users explore new music by giving them a new discovery experience where they will be able to tailor the discovery session by  interacting with the system. Enabling users to more accurately articulate music qualities and language will facilitate the interaction, addressing the challenge of finding a particular type of music they have encountered. Moreover, this will allow for social and shareable experiences."
-
-Finally, we finished with the creation of a task tree, shown in part here.
-<img src={'/venn-tree.png'} alt="Ciao"  style={{ width: '800px' }} className="mb-4"/>
+3 - Users sessions can be (roughly) divided into **discovery sessions** and **habitual listening sessions**.
 
 ## Digital prototype
 
-The insights we gathered during the research revolve around the concept of tags and Venn diagrams.
+The insights we gathered during the research revolve around the concept of **tags**.
 The tags are anything that could be used to tailor the recommendation algorithm. It can be a genre, an artist or a song. 
-Adding tags enables user interaction with the algorithm, influencing it by signaling preferences like "Give me something similar to X."
 
-<img src={'/venn-add-tag.gif'} alt="Ciao"  style={{ width: '250px' }} className="mb-4"/>
+Users can add tags from almost any screen to the **radio** (indicated by the pink toggle at the top).
+The user can experiment with mixing different tags or add new ones while listening to the music.
+<img src={'/venn-add-tag.gif'} alt="Ciao"  style={{ width: '250px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Adding tags enables user interaction with the algorithm</p>
 
-While using the app, users can add tags from almost any screen to the radio (indicated by the pink toggle at the top).
-The user can experiment with mixing different tags and add new ones while listening to the music.
+Once at least one tag is added to the radio, users can start **playing a radio mix** based on those tags. 
 
-<img src={'/venn-add-multiple.gif'} alt="Ciao"  style={{ width: '250px' }} className="mb-4"/>
+<img src={'/venn-add-multiple.gif'} alt="Ciao"  style={{ width: '250px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Starting the radio mix</p>
 
-Once at least one tag is added to the radio, users can start playing a radio mix based on those tags. 
-It's possible to always add or remove tags, either the tags that the user wants or from the suggested ones. 
+<img src={'/venn-radio.gif'} alt="Ciao"  style={{ width: '250px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ width:'400px' , fontFamily: 'tt-norms' }}>It's possible to always add or remove tags, either the tags that the user wants or from the suggested ones</p>
 
-<img src={'/venn-radio.gif'} alt="Ciao"  style={{ width: '250px' }} className="mb-4"/>
 
-Concluding the radio session provides users with feedback on their preferences. 
+Concluding the radio session provides users with **feedback on their preferences**. 
 
-<img src={'/venn-recap.gif'} alt="Ciao"  style={{ width: '250px' }} className="mb-4"/>
+<img src={'/venn-recap.gif'} alt="Ciao"  style={{ width: '250px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Radio recap</p>
 
-A "mix of tags" can be saved within a Venn, found in the library, and played next time the user wants to listen to a mix with the same tags. It can also be added directly from the home page.
+A "mix of tags" can be saved as, what we called, a **Venn**. It can be played next time the user wants to listen to a mix with the same tags.
 
-<img src={'/venn-morning-routine.gif'} alt="Ciao"  style={{ width: '250px' }} className="mb-4"/>
+<img src={'/venn-morning-routine.gif'} alt="Ciao"  style={{ width: '250px' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}}/>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Starting a Venn</p>
 
-For a more Spotify-like experience, users can eliminate tags from the entire app through the settings.
+As this could be not a feature for everyone, users can eliminate tags from the entire app through the settings.
 Overall, the application's curation involves human input for genre hierarchy and taxonomy. Each song is associated with genres, which artists can directly add. 
-
-We want the music genres to be shown as it will enhance users to be aware of their tastes, discover new ones and share them with others.
 
 ## My experience
 
-Throughout this project, my primary focus was on research. Delving into domain research and competitive analysis was truly engaging. Exploring numerous papers and articles on Spotify Research not only expanded my knowledge but also revealed my own Spotify usage patterns.
+Delving into domain research and competitive analysis was truly engaging. Exploring numerous papers and articles on Spotify Research not only expanded my knowledge but also revealed my own Spotify usage patterns.
 
-The most significant challenge was to create a design solution that would materialize the insights gathered from research and the user interviews.
+The most significant challenge was to create a **design solution that would materialize the insights gathered from research** and the user interviews.
 
-Designing an app like this in Figma presented complexities due to its multifaceted screen elements and abundant potential buttons and features.
+## Comment on Spotify's update
 
-Reflecting on the process, I recognize the need for greater attention to context scenarios and the task tree. These aspects could have better guided our focus during the subsequent prototyping phase.
+I was happily surprised to see similar features on Spotify's latest update. They started using the hashtags in the new feature "Explore your genres" in the Search page.
 
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '400px'}}>
+  <img src='/spotify-tags1.jpeg' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/spotify-tags2.jpeg' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+</div>
+<p className="text-dark-minsk justify-center pt-3 pb-5 text-sm"  style={{ fontFamily: 'tt-norms' }}>Spotify's new "Explore your genres" page</p>
 
 <p className="text-dark-minsk justify-center pt-4"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Ben Kriesel, Maelys Billon</p>
 

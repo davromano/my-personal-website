@@ -1,0 +1,59 @@
+---
+title: "Movie Characters Dynamics"
+slug: "movie"
+tags:
+  -  Data Science
+desc: "Examined over 20,000 movie plots using NLP and Network Analysis to explore relationships and interactions between main/side characters and between genders."
+date: "2024-01-01"
+
+---
+
+import Summary from '../src/components/Summary';
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
+  <img src='/ada_Personas_male_female.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_female.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_Personas_gender_genre.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+  <img src='/ada_wordcloud_personas.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+</div>
+
+<p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px', paddingTop: '10px' }}>Link to the project page:</p>
+
+<u className="text-dark-minsk text-2xl"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px' }}><a href="https://epfl-ada.github.io/ada-2023-project-rollthedatadice/">Data Story</a></u>
+
+<u className="text-dark-minsk text-xl"  style={{ fontFamily: 'tt-norms', paddingBottom: '10px' }}><a href="https://github.com/epfl-ada/ada-2023-project-rollthedatadice/tree/main">GitHub Repository</a></u>
+
+<Summary>
+- Clustering of film characters based on latent characteristics referred to as "personas"
+- Investigated the relationship between personas, gender and film genre
+- Created networks that map out how characters interact within each movie's storyline
+- Analyzed how characters of different genders and roles (main vs. supporting) interact across a wide range of movies
+</Summary>
+
+
+The project was done in team with Yanzi Liu, Ke Li, Mehdi Elbouari and Jiaming Jaing for the course "Applied Data Analysis" of the professor Bob West.
+
+<img src={'/ada_network.gif'} alt="Ciao"  style={{ width: '700px', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-2"/>
+
+<p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '40px' }}>Interactive plot of the Hunger Games characters network</p>
+
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px', paddingBottom: '10px'}}>
+  <img src='/ada_male.png' alt='Male' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_female.png' alt='Female' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+</div>
+
+<p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '40px' }}>Verb clustering of gender interactions</p>
+
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px', paddingBottom: '10px'}}>
+  <img src='/ada_crime_main.png' alt='Main' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/ada_crime_side.png' alt='Side' style={{ width: '100%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+</div>
+
+<p className="text-dark-minsk text-lg"  style={{ fontFamily: 'tt-norms', paddingBottom: '30px' }}>Verb clustering between main and side characters</p>
+
+<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Yanzi Liu, Ke Li, Mehdi Elbouari and Jiaming Jaing</p>
+
+<p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>

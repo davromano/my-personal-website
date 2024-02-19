@@ -74,12 +74,14 @@ const Layout = ({ children }) => {
             >
               Projects
             </Link>
+            {/* Link to articles page that I don't have for now
             <Link
               to="/articles"
               className="hover:text-clicked-minsk hover:underline"
             >
               Articles
             </Link>
+            */}
             <Link
               to="/contacts"
               className="hover:text-clicked-minsk hover:underline"

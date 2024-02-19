@@ -4,42 +4,41 @@ slug: "manhattan"
 tags:
     - Data Science
 desc: "Topic modeling and NER on a historical dataset containing 600+ interview transcripts of individuals who experienced the Manhattan Project. Through our methods, we discovered the individuals and topics most remembered and how they are connected."
+date: "2023-07-01"
 
 
 ---
 
 import Summary from '../src/components/Summary';
 
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' , width: '800px'}}>
+  <img src='/manhattan-years.png' alt='Personas Gender Genre' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+  <img src='/manhattan-test.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/manhattan-bar.png' alt='Personas Male Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+  <img src='/manhattan-lda.png' alt='Female' style={{ width: '100%' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} />
+
+</div>
+
 <Summary>
-- Implementation of topic modeling and name-entity extraction on a historical dataset containing 600+ interview transcripts of individuals who experienced the Manhattan Project and the subsequent cold war.
+- Implementation of topic modeling and NER on a historical dataset containing 600+ interview transcripts of people who experienced the Manhattan Project.
 - Detection of key individuals and significant events recalled by interviewees, including some lesser-known figures from history.
 - Creation of a "gazette" linking each individual to their most relevant topic.
 - Analysis and interpretation of the results by taking in consideration historical and psychological aspects.
 </Summary>
 
-## Introduction
-
-I've made this project for the course History and the Digital at EPFL with my teammates Cindy Tang and Junzhe Tang.
-
-We applied Topic modelling and Name-Entity Extraction Recognition (NER) to extract the salient topics and people that are remembered in the memories contained in an archive with more than 600 oral histories of people living during the Manhattan Project. 
-Furthermore, we created a "gazette" in which each individual is associated with the words extracted from the topic most associated with the person.
-
-## Manhattan Project
-
-If you've watched Oppenheimer, you can skip this paragraph :P 
-
-The first atomic bomb was the result of a United States research and development effort known as the Manhattan Project (MP) during World War II. This crucial period with remarkable scientific breakthroughs led to the emergence of new ethical, societal, and political issues, thus capturing the attention of numerous researchers. Notably, the Atomic Heritage Foundation (AHF) has collected more than 600 interviews of the MP workers. It is within this rich corpus that our project finds its focus.
+This project was done for the course History and the Digital of the professor Jerome Baudry.
 
 ## Oral histories
+**"Communicative memory"** is people's everyday tales and talks about an event. It's messy, partial, changeable, impacted by psychology and society. It lasts as long as those who witnessed the event live, about 80-100 years. Given we're in the 2020s, we're nearing this limit for MP events, mostly from 1941-1945.
 
-"Communicative memory" and "cultural memory" terms coined by Assmann in his work on oral memory and history. 
+**"Cultural memory"** covers concrete aspects of a society's culture like texts, rituals, art, and monuments. These are made on purpose to remember and bring back important past events shared by all.
 
-"Communicative memory" is people's everyday tales and talks about an event. It's messy, partial, changeable, impacted by psychology and society. It lasts as long as those who witnessed the event live, about 80-100 years. Given we're in the 2020s, we're nearing this limit for MP events, mostly from 1941-1945.
-"Cultural memory" covers concrete aspects of a society's culture like texts, rituals, art, and monuments. These are made on purpose to remember and bring back important past events shared by all.
+These two terms coined by Assmann in his work on oral memory and history. 
 
 ## Research questions
 
-Based on Assmann theories and the preceding motivations, we defined our two main research questions as:
+Based on Assmann theories, we defined our two main research questions as:
 
 1 - What topics and individuals are retained in the communicative memories of the AHF oral histories?
 
@@ -47,71 +46,74 @@ Based on Assmann theories and the preceding motivations, we defined our two main
 
 ## Secondary literature
 
-To comprehend better the historical context of the MP we read various sources to understand places, figures and main events.
+To comprehend better the context of our study we read various sources about: 
 
-Futhermore, we read about Assmann’s work on communicative/cultural memory and we have explored the concept of "conversational remembering", where conversations prompt speakers to recall past experiences. This shapes collective memory, yet what's recalled depends on the audience and dynamics, and sometimes interviewees intentionally hold back certain memories. Factors include:
+1 - **Assmann’s work** on communicative/cultural memory 
 
-1 - How recalling affects memory: It can implant false memories, strengthen some, and fade others
-
-2 - Memory spreads socially: Memories move from person to person through talking
+2 - Explored the concept of **"conversational remembering"** and the factors that shape the dynamics of recalling events.
 
 ## Data
 
-Our data is from Voices of the Manhattan Project, housing 600 interviews with project workers and families, managed by the AHF and Los Alamos Historical Society. We analyze interview transcripts with associated metadata like names, roles, dates, and locations. Yet, limitations exist: we're using just 600 interviews from a total of 150,000 workers, possibly not fully representing diversity. Interviews, mainly post-2000s, recall events over 60 years old, subject to fading and change. AHF aims for enduring personal stories, often focusing on intimate biographical aspects. Interviews might be steered toward specific themes, affecting our cultural context. This can introduce question biases, deliberately focusing on certain subjects.
+Our research analyzes 600 interview transcripts from the Voices of the Manhattan Project, managed by the AHF and Los Alamos Historical Society.
 
-<img src={'/manhattan-years.png'} alt="Ciao"  style={{ width: '700px ' }} className="mb-4"/>
+#### Limitations in the data
+Despite the rich data, the limited sample from over 150,000 workers may not fully represent diversity, and the reliance on memories from over 60 years ago introduces potential biases. Additionally, the AHF's emphasis on personal stories could skew the cultural context of the interviews.
 
 ## Methods
 
 The data was scraped from the web, then we utilize a basic NLP pipeline for text pre-processing.
 
-Topic modelling: Applying a Latent Dirichlet Allocation (LDA) model from the Gensim library. We experiment with multiple hyper-parameters, assessing the topics extracted through qualitative and quantitative measures, specifically utilizing the coherence score provided by Gensim to gauge semantic similarity among high-scoring words within a topic.
+**Topic modelling**: We applied Latent Dirichlet Allocation (LDA) using the Gensim library.
 
-Person Entity Extraction: we utilize SpaCy for Named Entity Recognition (NER) to detect individuals mentioned in the interviews. We've spotted various names with different forms and frequencies. But, names like "Robert," "Marshall," and "Nichols" can cause confusion due to overlapping. 
-So, picking the right full names to replace these partial ones is crucial. For this, we use a database of profile names and we compare the extracted names to this database, we find similar names using methods like Soundex and string matching. Then, with entity linking, we choose the most fitting similar name. Since interviews follow a pattern where a full name is first used to establish context, followed by surnames or nicknames, we choose names accordingly. We locate similar names appearing before the extracted one, finding the closest based on context. If needed, the longest name is selected in case of ties. Finally, we replace partial names with the correct full names.
+**Person Entity Extraction**: we utilize SpaCy for Named Entity Recognition (NER) to detect individuals mentioned in the interviews. 
 
-<img src={'/manhattan-method.png'} alt="Ciao"  style={{ width: '400px ' }} className="mb-4"/>
+We tested various techniques to solve the problem of **entity disambiguation** including methods like Soundex and string matching followed by the name linking pipeline described here: 
+
+<img src={'/manhattan-method.png'} alt="Ciao"  style={{ width: '400px ' , boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
 
 ## Results
 
-We identified 7 main topics, on which we defined semantic names. It indicates that these memories enclose not only scientific and technical aspects, but also valuable insights into the interviewees’ daily lives, familial experiences, and the political context of this event.
+We identified 7 main topics that not only include scientific and technical aspects, but also valuable insights into the interviewees’ daily lives, familial experiences, and the political context of this event.
 
-<img src={'/manhattan-lda.png'} alt="Ciao"  style={{ width: '700px ' }} className="mb-4"/>
+<img src={'/manhattan-lda.png'} alt="Ciao"  style={{ width: '900px ', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-4"/>
 
 The most notable figures were some well-known figures like Robert Oppenheimer, Leslie Groves, Enrico Fermi and Edward Teller.
 
-<img src={'/manhattan-top50.png'} alt="Ciao"  style={{ width: '700px ' }} className="mb-4"/>
+<img src={'/manhattan-top50.png'} alt="Ciao"  style={{ width: '900px ', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)' }} className="mb-4"/>
 
-We observed a skewed distribution of mentioned individuals in the interviews, with 32% of mentions belonging to only 1% (50 names) of the recognized total. One possible hypothesis is related to the constraints of conversational remembering. Human memory is dynamic and subject to various emotional, intellectual, and social factors over time. When people remember and share their experiences with others, influenced by their comments and questions. Famous individuals may tend to attract more comments and questions
+32% of mentions belong to only 1% (50 names) of the recognized total. 
+One possible hypothesis is related to the constraints of conversational remembering. As time passes, famous individuals often receive more comments and questions from interviewees, thus keeping these people in the collective memory even more.
 
-The image below illustrates the various roles played by the top 100 individuals mentioned in the interviews. The labels, created by the AHF, allow for multiple roles assigned to each person. The results follow the expectations, however there are interesting exceptions, such as military veterans, a dozen Project workers/staff, and a few women scientists, highlighting the diversity of roles represented in the interviews.
+In the top 100 individuals mentioned in the interviews we also noted the presence of some interesting exceptions, such as military veterans, a dozen Project workers/staff, and a few women scientists.
 
-<img src={'/manhattan-roles.png'} alt="Ciao"  style={{ width: '700px ' }} className="mb-4"/>
+<img src={'/manhattan-roles.png'} alt="Ciao"  style={{ width: '900px ', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)' }} className="mb-4"/>
 
 Finally, we also created a ”gazette” in Table II that associates for each person a topic and a list of words.
 
-<img src={'/manhattan-gazette.png'} alt="Ciao"  style={{ width: '700px ' }} className="mb-4"/>
+<img src={'/manhattan-gazette.png'} alt="Ciao"  style={{ width: '900px ', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)' }} className="mb-4"/>
 
 ## What I've learned & Challenges
 
-**Historical research is hard**: I discovered how rigourous one has to be before concluding anything. 
+**(Historical) research is hard**: I discovered how rigourous one has to be before concluding anything. 
 
-**Let the dataset speak**: It's tempting to focus on methods and algorithms, hoping they align perfectly, but in reality, this works out only 1% of the time. During our project's evolution, we had to discard code and results as they didn't consider crucial assumptions or tried to address unanswerable or historically obvious questions. We had to ask ourselves: what questions is worth answering with this dataset? It was hard finding an answer. There's even potential for greater impact, but we initially lost time chasing unattainable inquiries.
+**Let the dataset speak**: It's tempting to focus on methods and algorithms, hoping they align perfectly, but in reality, this works out only 1% of the time. 
+
+During our project's evolution, we had to discard code and results as they didn't consider crucial assumptions or tried to address unanswerable or historically obvious questions. 
+
+We had to ask ourselves: what questions is worth answering with this dataset?
 
 **Read, read, read**: with my background of computer science, I entered a new realm of humanities and historical research. 
 I found myself reading a lot more material, documents and literature. 
-As data scientists, we often forget about the vast realm of literature beyond the internet's reach.
-
-**NER disambiguation proved laborious**: 
-Arriving at a disambiguation solution for names demanded considerable time and thoughtful effort. There was no best solution.
-We were faced with the decision of either omitting ambiguous paragraphs (higher precision) or aiming to consider all entities (recall) with potential errors.
 
 ## Future improvements
 
-Studying the dynamics of memories over time: Comparing interviews conducted during different periods can provide valuable insights into the evolution of memories over time.
+Studying the **dynamics of memories over time**: Comparing interviews conducted during different periods can provide valuable insights into the evolution of memories over time.
 
-Exploring the exceptions: investigating more on individuals who are less recognized in historical archives.
+**Exploring the exceptions**: investigating more on individuals who are less recognized in historical archives.
 
-Tool for further research: Our results, including topic modeling and gazette, can be utilized for historical and prosopographical research. They enable indexing of transcripts based on topics and individuals.
+Exploring the **possible bias in the questions**: In order to gain a more comprehensive understanding of our results, it would be beneficial to examine the formulation and content of the questions.
 
-Exploring the possible bias in the questions: In order to gain a more comprehensive understanding of our results, it would be beneficial to examine the formulation and content of the questions.
+
+<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>Team: Davide Romano, Cindy Tang, Junzhe Tang</p>
+
+<p className="text-dark-minsk justify-center "  style={{ fontFamily: 'tt-norms' }}>Author: Davide Romano</p>

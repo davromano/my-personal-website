@@ -77,7 +77,7 @@ const ProjectsPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx (sort: { frontmatter: { date: DESC } }){
       nodes {
         id
         fields {
@@ -88,6 +88,7 @@ export const query = graphql`
           slug
           tags
           desc
+          date
         }
         excerpt
       }
