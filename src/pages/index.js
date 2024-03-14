@@ -33,19 +33,20 @@ const IndexPage = ({ data }) => {
             <h1 className="font-bold text-4xl lg:hidden mt-6">
               Hi, I'm Davide Romano
             </h1>
-            <p className="lg:text-xl text-base mt-6 lg:mt-0">
+            <p className="lg:text-xl text-base mt-4 lg:mt-0">
               I am a Digital Humanities student at EPFL, Switzerland. I am
-              particularly interested in anything related with{" "}
+              particularly interested in the intersection of{" "}
               <span className="lg:font-bold font-normal text-red-highlight">
-                Data Science
-              </span>
-              ,{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">
-                User Research
+                user research
               </span>{" "}
               and{" "}
               <span className="lg:font-bold font-normal text-red-highlight">
-                Product Management
+                data science
+              </span>
+              , as I believe that these two fields are closely linked and can be
+              used together to drive{" "}
+              <span className="lg:font-bold font-normal text-red-highlight">
+                informed decision making
               </span>
               .
             </p>
