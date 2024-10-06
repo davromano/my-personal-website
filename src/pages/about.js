@@ -28,8 +28,8 @@ const AboutPage = () => {
           </div>
           <div className="text-lg text-dark-minsk md:w-1/2 md:mt-0 mt-4">
             <p className="pb-3 md:pb-0">
-              Hi there! I'm Davide, a 1st year Digital Humanities student at
-              EPFL. I am mainly interested in UX design and data science.
+              Hi there! I'm Davide, a Digital Humanities master student at
+              EPFL. I am mostly interested in NLP, Language Models and anything related to Data.
             </p>
             <p className="pb-3">
               I love learning languages and exploring new cultures and places.
@@ -70,6 +70,9 @@ const AboutPage = () => {
           <p className="pb-3">
             In 2022 I was accepted for the Digital Humanities master at EPFL and
             I couldn't be more happy!
+          </p>
+          <p className="pb-3">
+            From August 2024 I am working for at AXA Group Operations in Lausanne as a Data Scientist / LLM Engineer. My work revolves around improving the in-house LLM agent for the insurance related use cases.
           </p>
         </div>
         <div className="flex pt-4">

@@ -20,48 +20,58 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className=" bg-nav-mobile-minsk h-16 flex justify-center fixed top-0 w-full z-20">
+      {/* Navigation Bar */}
+      <nav className="fixed top-4 left-8 right-8 bg-nav-mobile-minsk h-16 flex justify-center items-center z-20 rounded-lg shadow-xl max-w-3xl mx-auto">
         {/* Mobile Code */}
-        <div className="container flex justify-between items-center text-dark-minsk md:hidden">
-          <Link
-            to="/"
-            className="md:hidden text-dark-minsk font-normal text-2xl ml-4"
-            style={{ fontFamily: "tt-norms" }}
-          >
-            Davide Romano
+        <div className="flex justify-between items-center text-dark-minsk w-full px-4 md:hidden">
+          <Link to="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-house"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+            </svg>
           </Link>
-          <div className="md:hidden mr-4">
-            <button className="h-8 w-8" onClick={toggleMenu}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 9h16.5m-16.5 6.75h16.5"
-                />
-              </svg>
-            </button>
-          </div>
+          <button className="h-8 w-8" onClick={toggleMenu}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 9h16.5m-16.5 6.75h16.5"
+              />
+            </svg>
+          </button>
         </div>
 
-        {/* Original Code */}
+        {/* Desktop Code */}
         <div
-          className="container md:flex justify-between items-center text-dark-minsk hidden"
+          className="hidden md:flex justify-between items-center text-dark-minsk w-full px-8"
           style={{ fontFamily: "tt-norms" }}
         >
-          <Link
-            to="/"
-            className="hidden md:block text-dark-minsk font-normal text-2xl"
-          >
-            Davide Romano
+          <Link to="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-house"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+            </svg>
           </Link>
-          <div className="flex space-x-10 md:text-lg font-normal text-base justify-center mx-2">
+          <div className="flex space-x-10 md:text-lg font-normal text-base">
             <Link
               to="/about"
               className="hover:text-clicked-minsk hover:underline"
@@ -74,7 +84,7 @@ const Layout = ({ children }) => {
             >
               Projects
             </Link>
-            {/* Link to articles page that I don't have for now
+            {/* Uncomment when articles page is available
             <Link
               to="/articles"
               className="hover:text-clicked-minsk hover:underline"
@@ -94,50 +104,53 @@ const Layout = ({ children }) => {
 
       {/* Hamburger Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-full overflow-y-hidden transition-transform duration-500 ease-in-out transform z-10 ${
+        className={`fixed top-16 left-0 w-full h-full overflow-y-hidden transition-opacity duration-500 ease-in-out z-10 pointer-events-none ${
           isMenuOpen
-            ? " translate-y-0 bg-white-minsk bg-opacity-60 backdrop-blur-3xl "
-            : "-translate-y-full"
+            ? "opacity-100 bg-white-minsk bg-opacity-10 backdrop-blur-3xl shadow-md pointer-events-auto" : "opacity-0"
         }`}
       >
         <div
-          className="flex flex-col text-dark-minsk space-y-20 justify-center items-center mt-40 text-4xl"
+          className="flex flex-col text-dark-minsk space-y-10 justify-center items-center mt-24 text-4xl w-10/12 max-w-lg mx-auto p-6 bg-nav-mobile-minsk rounded-lg"
           style={{ fontFamily: "tt-norms" }}
         >
           {/* Add menu links here */}
           <Link
             to="/about"
-            className="hover:text-clicked-minsk hover:underline"
+            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
           >
             About me
           </Link>
           <Link
             to="/projects"
-            className="hover:text-clicked-minsk hover:underline"
+            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
           >
             Projects
           </Link>
           <Link
             to="/articles"
-            className="hover:text-clicked-minsk hover:underline"
+            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
           >
             Articles
           </Link>
           <Link
             to="/contacts"
-            className="hover:text-clicked-minsk hover:underline"
+            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
           >
             Contacts
           </Link>
         </div>
       </div>
 
-      <div className="flex-grow mt-16"
-      style={{
-        maxHeight: '100vh',
-        position: isMenuOpen ? 'fixed' : 'static',
-      }}>
-        <main className="bg-white-minsk w-full">{children}</main>
+      {/* Main Content */}
+      <div
+        className={`flex-grow mt-24 mx-4 ${
+          isMenuOpen ? "fixed inset-0 overflow-hidden" : "relative"
+        }`}
+        style={{
+          maxHeight: "100vh",
+        }}
+      >
+        <main className="bg-white-minsk w-full rounded-lg p-4">{children}</main>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const ElementBox = ({ node }) => {
 
   return (
     <div
-      className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 
+      className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 shadow-sm 
         flex flex-col lg:w-11/12 transition-all duration-300 ${
           isHovered
             ? " md:h-56 h-fit"

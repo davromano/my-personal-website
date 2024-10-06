@@ -24,31 +24,32 @@ const IndexPage = ({ data }) => {
         style={{ fontFamily: "tt-norms", height: "calc(100vh - 4rem)" }}
       >
         <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32">
-          <div className="lg:mx-32">
+          <div className="lg:mx-32 overflow-hidden ">
             {/* Only show h1 on larger screens */}
-            <h1 className="font-bold w-120 hidden lg:block text-6xl mb-4">
+            <h1 className="font-bold w-120 hidden lg:block text-6xl mb-4 animate-slideUp">
               Hi, I'm Davide Romano
             </h1>
             {/* Show text-xl on smaller screens */}
-            <h1 className="font-bold text-4xl lg:hidden mt-6">
+            <h1 className="font-bold text-4xl lg:hidden mt-6 animate-slideUp">
               Hi, I'm Davide Romano
             </h1>
-            <p className="lg:text-xl text-base mt-4 lg:mt-0">
-              I am a Digital Humanities student at EPFL, Switzerland. I am
-              particularly interested in the intersection of{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">
-                user research
+            <p className="lg:text-xl text-base mt-4 lg:mt-0 mb-3 animate-slideUp">
+            I am a EPFL Digital Humanities master student currently working in AXA as LLM engineer / Data scientist intern.
+            </p>
+            <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp">
+               I ejony designing and developing {" "}
+              <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
+                applications with large language models
               </span>{" "}
-              and{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">
-                data science
+              and leveraging{" "}
+              <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
+                 data analysis
               </span>
-              , as I believe that these two fields are closely linked and can be
-              used together to drive{" "}
-              <span className="lg:font-bold font-normal text-red-highlight">
-                informed decision making
+              {" "}and{" "}
+              <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
+                visualization
               </span>
-              .
+              {" "}to uncover actionable insights.
             </p>
           </div>
         </div>
