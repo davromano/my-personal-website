@@ -104,7 +104,7 @@ const Layout = ({ children }) => {
 
       {/* Hamburger Menu */}
       <div
-        className={`fixed top-16 left-0 w-full h-full overflow-y-hidden transition-opacity duration-500 ease-in-out z-10 pointer-events-none ${
+        className={`fixed top-16 left-0 w-full h-full overflow-y-hidden transition-opacity duration-700 ease-in-out z-10 pointer-events-none ${
           isMenuOpen
             ? "opacity-100 bg-white-minsk bg-opacity-10 backdrop-blur-3xl shadow-md pointer-events-auto" : "opacity-0"
         }`}
