@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
             I am a EPFL Digital Humanities master student currently working in AXA as LLM engineer / Data scientist intern.
             </p>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp">
-               I ejony designing and developing {" "}
+               I am interested in designing and developing {" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
                 applications with large language models
               </span>{" "}
