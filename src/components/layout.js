@@ -155,12 +155,6 @@ const Layout = ({ children }) => {
             Projects
           </Link>
           <Link
-            to="/articles"
-            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
-          >
-            Articles
-          </Link>
-          <Link
             to="/contacts"
             className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
           >

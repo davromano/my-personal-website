@@ -14,7 +14,7 @@ const AboutPage = () => {
         style={{ fontFamily: "tt-norms" }}
         className="flex-col items-center justify-center w-4/5 md:w-3/5 mt-12"
       >
-        <h1 className="text-4xl pb-6 text-dark-minsk">About me</h1>
+        <h1 className="text-4xl pb-6 text-dark-minsk justify-center flex">About me</h1>
         <div className="md:flex md:space-x-8">
           <div className="md:w-1/2">
             <StaticImage
@@ -23,7 +23,7 @@ const AboutPage = () => {
               placeholder="blurred"
               width={400}
               height={600}
-              className="shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105 pb-6"
+              className="shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105 pb-6 rounded-lg"
             />
           </div>
           <div className="text-lg text-dark-minsk md:w-1/2 md:mt-0 mt-4">
