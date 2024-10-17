@@ -168,11 +168,8 @@ const Layout = ({ children }) => {
         className={`flex-grow mt-24 mx-4 ${
           isMenuOpen ? "fixed inset-0 overflow-hidden" : "relative"
         }`}
-        style={{
-          maxHeight: "100vh",
-        }}
       >
-        <main className="bg-white-minsk w-full rounded-lg p-4">{children}</main>
+        <main className="bg-white-minsk w-full rounded-lg p-4" style={{ fontFamily: "tt-norms" }}>{children}</main>
       </div>
     </div>
   );

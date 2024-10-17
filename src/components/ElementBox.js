@@ -25,10 +25,10 @@ const ElementBox = ({ node }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h2 className=" text-xl md:text-2xl font-bold text-darkest-minsk font-tt-norms-pro self-start">
+      <h2 className=" text-xl md:text-2xl font-bold text-darkest-minsk self-start">
         <Link to={`/projects/${slug}`}>{title}</Link>
       </h2>
-      <ul className=" text-base md:text-lg font-normal text-darkest-minsk font-tt-norms-pro flex space-x-8">
+      <ul className=" text-base md:text-lg font-normal text-darkest-minsk flex space-x-8">
         {tags.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}

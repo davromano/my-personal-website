@@ -32,7 +32,7 @@ module.exports = {
       },
       backgroundImage: {
         pattern:
-          "radial-gradient(circle at center, #f5f5f5ff 50%, rgba(245, 245, 245, 0) 100%), url('/pattern.png')",
+          "radial-gradient(circle at top, #f5f5f5ff 0%, rgba(245, 245, 245, 0) 25%), url('/pattern.png')",
       },
     },
   },

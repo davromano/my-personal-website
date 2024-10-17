@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby";
 import ElementBox from "../components/ElementBox";
 
 const IndexPage = ({ data }) => {
-  const sourcesToFilter = ["movie", "ethical-guidance", "countastic"];
+  const sourcesToFilter = ["xai", "ethical-guidance", "dataviz"];
   const selectedArticles = data.allMdx.nodes.filter(
     (node) =>
       sourcesToFilter.includes(node.frontmatter.slug) &&
@@ -27,11 +27,11 @@ const IndexPage = ({ data }) => {
           <div className="lg:mx-32 overflow-hidden ">
             {/* Only show h1 on larger screens */}
             <h1 className="font-bold w-120 hidden lg:block text-6xl mb-4 animate-slideUp">
-              Hi, I'm Davide Romano
+              Hi, I'm Davide
             </h1>
             {/* Show text-xl on smaller screens */}
             <h1 className="font-bold text-4xl lg:hidden mt-6 animate-slideUp">
-              Hi, I'm Davide Romano
+              Hi, I'm Davide
             </h1>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 mb-3 animate-slideUp">
             I am a EPFL Digital Humanities master student currently working in AXA as LLM engineer / Data scientist intern.
@@ -49,12 +49,12 @@ const IndexPage = ({ data }) => {
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
                 visualization
               </span>
-              {" "}to uncover actionable insights.
+              {" "}to uncover actionable insights and stories.
             </p>
           </div>
         </div>
 
-        <div className="lg:w-1/2 lg:mt-32 mt-8">
+        <div className="lg:w-1/2 lg:mt-12 mt-8">
           <h2 className="text-2xl mb-3">Selected Projects</h2>
           {selectedProjects.map((node) => (
             <ElementBox key={node.id} node={node} />

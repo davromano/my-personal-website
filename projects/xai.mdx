@@ -1,0 +1,23 @@
+---
+title: "iLLuMinaTE"
+slug: "xai"
+desc: "Developed iLLuMinaTE, a LLM pipeline that delivers actionable, theory-driven feedback to students, outperforming traditional explainers with 89.52% student preference across diverse online courses."
+tags:
+  - LLMs
+---
+
+import Summary from '../src/components/Summary';
+
+<u className="text-dark-minsk text-2xl mt-8 mb-8"  style={{ fontFamily: 'tt-norms'}}><a href="https://arxiv.org/abs/2409.08027">Publication</a></u>
+
+
+<img src={'/xai-pipeline.png'} alt="iLLuMinaTE pipeline"  style={{ width: '80%', boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.1)'}} className="mb-6"/>
+
+<Summary>
+- Introduced iLLuMinaTE, a zero-shot LLM pipeline for delivering actionable feedback to students in online courses.
+- Utilizes three stages (causal connection, explanation selection, presentation) based on eight social science theories.
+- Evaluated over 21,000 explanations with a "human-in-the-loop" approach using LLM-as-a-judge reliably and safely
+- Student preference for iLLuMinaTE explanations was 89.52% compared to traditional methods.
+</Summary>
+
+<p className="text-dark-minsk justify-center pt-4 pb-2"  style={{ fontFamily: 'tt-norms' }}>In collaboration with: Vinitra Swamy, Bhargav Srinivasa Desikan, Oana-Maria Camburu, Tanja Käser</p>
