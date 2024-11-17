@@ -2,10 +2,11 @@ import * as React from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { Link, graphql } from "gatsby";
-import ElementBox from "../components/ElementBox";
+import ElementBox from "../components/ElementBox"; // Original ElementBox for mobile
+import ElementBox_test from "../components/ElementBox_homepage"; // New ElementBox_test for md+
 
 const IndexPage = ({ data }) => {
-  const sourcesToFilter = ["xai", "ethical-guidance", "dataviz"];
+  const sourcesToFilter = ["xai", "ethical-guidance", "mnlp", "dataviz"];
   const selectedArticles = data.allMdx.nodes.filter(
     (node) =>
       sourcesToFilter.includes(node.frontmatter.slug) &&
@@ -16,6 +17,18 @@ const IndexPage = ({ data }) => {
       sourcesToFilter.includes(node.frontmatter.slug) &&
       node.fields.source === "projects"
   );
+
+  // Split the selectedProjects into two columns for ElementBox_test
+  const leftColumnProjects = [];
+  const rightColumnProjects = [];
+
+  selectedProjects.forEach((project, index) => {
+    if (index % 2 === 0) {
+      leftColumnProjects.push(project);
+    } else {
+      rightColumnProjects.push(project);
+    }
+  });
 
   return (
     <Layout pageTitle="Home Page">
@@ -34,37 +47,60 @@ const IndexPage = ({ data }) => {
               Hi, I'm Davide
             </h1>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 mb-3 animate-slideUp">
-            I am a EPFL Digital Humanities master student currently working in AXA as LLM engineer / Data scientist intern.
+              I am a EPFL Digital Humanities master student currently working in
+              AXA as LLM engineer / Data scientist intern.
             </p>
-            <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp">
-               I am interested in designing and developing {" "}
+            <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp mb-5">
+              I am interested in designing and developing{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
                 applications with large language models
               </span>{" "}
               and leveraging{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
-                 data analysis
-              </span>
-              {" "}and{" "}
+                data analysis
+              </span>{" "}
+              and{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
                 visualization
-              </span>
-              {" "}to uncover actionable insights and stories.
+              </span>{" "}
+              to uncover actionable insights and stories.
             </p>
           </div>
         </div>
 
-        <div className="lg:w-1/2 lg:mt-12 mt-8">
-          <h2 className="text-2xl mb-3">Selected Projects</h2>
-          {selectedProjects.map((node) => (
-            <ElementBox key={node.id} node={node} />
-          ))}
-          <Link
-            to="/projects"
-            className=" text-dark-minsk hover:text-clicked-minsk hover:underline pb-5"
-          >
-            Or have a look at all projects
-          </Link>
+        <div className="lg:w-1/2 mt-8">
+          <div className="flex justify-between items-center mb-3">
+            <h2 className="text-2xl">Selected Projects</h2>
+            <Link
+              to="/projects"
+              className="text-dark-minsk hover:text-clicked-minsk hover:underline"
+            >
+              Or have a look at all projects
+            </Link>
+          </div>
+
+          <div className="block md:hidden">
+            {selectedProjects.map((node) => (
+              <ElementBox_test key={node.id} node={node} />
+            ))}
+          </div>
+
+          {/* md and up: Two Columns with ElementBox_test */}
+          <div className="hidden md:flex flex-row gap-6">
+            {/* Left Column */}
+            <div className="flex-1 flex flex-col gap-3">
+              {leftColumnProjects.map((node) => (
+                <ElementBox_test key={node.id} node={node} />
+              ))}
+            </div>
+
+            {/* Right Column */}
+            <div className="flex-1 flex flex-col gap-3">
+              {rightColumnProjects.map((node) => (
+                <ElementBox_test key={node.id} node={node} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
@@ -80,11 +116,16 @@ export const query = graphql`
           source
         }
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
           title
           slug
           tags
           desc
+          date
+          thumb {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+            }
+          }
         }
         excerpt
       }
@@ -95,17 +136,3 @@ export const query = graphql`
 export const Head = () => <Seo title="Home Page" />;
 
 export default IndexPage;
-
-{
-  /*{selectedArticles.map((node) => (
-        <article key={node.id}>
-          <h2>
-            <Link to={`/articles/${node.frontmatter.slug}`}>
-              {node.frontmatter.title}
-            </Link>
-          </h2>
-          <p>Posted: {node.frontmatter.date}</p>
-          <p>{node.excerpt}</p>
-        </article>
-      ))}*/
-}

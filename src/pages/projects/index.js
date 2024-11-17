@@ -99,7 +99,7 @@ const ProjectsPage = ({ data }) => {
         {/* Mobile: Single Column with ElementBox */}
         <div className="block md:hidden">
           {selectedProjects.map((node) => (
-            <ElementBox key={node.id} node={node} />
+            <ElementBox_test key={node.id} node={node} />
           ))}
         </div>
 
@@ -141,8 +141,6 @@ export const query = graphql`
           thumb {
             childImageSharp {
               gatsbyImageData(
-                width: 400
-                height: 400
                 layout: CONSTRAINED
                 placeholder: BLURRED
               )

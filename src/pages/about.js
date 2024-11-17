@@ -29,9 +29,9 @@ const AboutPage = () => {
           <div className="text-lg text-dark-minsk md:w-1/2 md:mt-0 mt-4">
             <p className="pb-3 md:pb-0">
               Hi there! I'm Davide, a Digital Humanities master student at
-              EPFL. I am mostly interested in NLP, Language Models and anything related to Data.
+              EPFL. I am interested in Language Models, NLP and anything related to Data.
             </p>
-            <p className="pb-3">
+            <p className="pb-3 mt-2">
               I love learning languages and exploring new cultures and places.
               When I need a break from all the brain power, I love hanging out
               with friends, listen to music or podcasts. Oh, and I read about
