@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 
 const ElementBox = ({ node }) => {
-  const { title, slug, tags, thumb} = node.frontmatter;
+  const { title, slug, tags, thumb } = node.frontmatter;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -16,19 +16,17 @@ const ElementBox = ({ node }) => {
   return (
     <div
       className={`bg-transparent border-middle-minsk border rounded-lg p-4 space-y-4 mb-4 shadow-sm 
-        flex flex-col lg:w-11/12 transition-all duration-300 ${
-          isHovered
-            ? " md:h-56 h-fit"
-            : " md:h-36 h-fit"
-        }`}
+        flex flex-col transition-all duration-300 
+        w-full md:w-full 
+        ${isHovered ? "md:h-64 h-fit" : "md:h-48 h-fit"}`}
       style={{ backgroundColor: isHovered ? "#c6beda" : "transparent" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h2 className=" text-xl md:text-2xl font-bold text-darkest-minsk self-start">
+      <h2 className="text-xl md:text-2xl font-bold text-darkest-minsk self-start">
         <Link to={`/projects/${slug}`}>{title}</Link>
       </h2>
-      <ul className=" text-base md:text-lg font-normal text-darkest-minsk flex space-x-8">
+      <ul className="text-base md:text-lg font-normal text-darkest-minsk flex space-x-8">
         {tags.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}

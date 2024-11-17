@@ -37,6 +37,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     `gatsby-remark-images`,
     `gatsby-plugin-netlify`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

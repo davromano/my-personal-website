@@ -4,7 +4,8 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import { graphql } from "gatsby";
 import { all_tags } from "../../components/all_tags";
-import ElementBox from "../../components/ElementBox";
+import ElementBox from "../../components/ElementBox"; // Original ElementBox for mobile
+import ElementBox_test from "../../components/ElementBox_test"; // New ElementBox_test for md+
 import NumberSequence from "../../components/NumberSequence"; // Import the NumberSequence component
 
 const ProjectsPage = ({ data }) => {
@@ -29,17 +30,30 @@ const ProjectsPage = ({ data }) => {
     selectedTags.every((tag) => node.frontmatter.tags.includes(tag))
   );
 
+  // Split the selectedProjects into two columns for ElementBox_test
+  const leftColumnProjects = [];
+  const rightColumnProjects = [];
+
+  selectedProjects.forEach((project, index) => {
+    if (index % 2 === 0) {
+      leftColumnProjects.push(project);
+    } else {
+      rightColumnProjects.push(project);
+    }
+  });
+
   return (
     <Layout pageTitle="Projects">
-      <div className="text-dark-minsk w-4/5 items-center justify-center h-screen md:mt-14 mt-5">
+      <div className="text-dark-minsk w-4/5 mx-auto items-center justify-center min-h-screen md:mt-14 mt-5">
         {/* Title with Number Sequence */}
         <div className="flex items-center mb-6">
           <NumberSequence count={projects.length} /> {/* NumberSequence Component */}
-          <h1 style={{ fontFamily: "tt-norms" }} className="text-3xl md:text-4xl">
+          <h1 style={{ fontFamily: "tt-norms" }} className="ml-4 text-3xl md:text-4xl">
             Projects
           </h1>
         </div>
 
+        {/* Tag Buttons */}
         {/* Only shows on larger screens */}
         <div className="md:mb-3 md:mt-0 mt-6 mb-6 lg:block hidden">
           <ul className="flex space-x-4">
@@ -60,8 +74,8 @@ const ProjectsPage = ({ data }) => {
         </div>
 
         {/* Only shows on small screens */}
-        <div className="md:mb-3 md:mt-0 mt-6 mb-8 justify-start lg:hidden ">
-          <ul className="md:grid-rows-1 grid grid-cols-2 gap-x-2 gap-y-4">
+        <div className="md:mb-3 md:mt-0 mt-6 mb-8 justify-start lg:hidden">
+          <ul className="grid grid-cols-2 gap-x-2 gap-y-4">
             {all_tags.map((tag) => (
               <button
                 key={tag}
@@ -78,12 +92,33 @@ const ProjectsPage = ({ data }) => {
           </ul>
         </div>
 
+        {/* Separator Line */}
         <div className="border-t border-middle-minsk w-11/12 mb-6 mt-6"></div>
 
         {/* Projects List */}
-        {selectedProjects.map((node) => (
-          <ElementBox key={node.id} node={node} />
-        ))}
+        {/* Mobile: Single Column with ElementBox */}
+        <div className="block md:hidden">
+          {selectedProjects.map((node) => (
+            <ElementBox key={node.id} node={node} />
+          ))}
+        </div>
+
+        {/* md and up: Two Columns with ElementBox_test */}
+        <div className="hidden md:flex flex-row gap-6">
+          {/* Left Column */}
+          <div className="flex-1 flex flex-col gap-6">
+            {leftColumnProjects.map((node) => (
+              <ElementBox_test key={node.id} node={node} />
+            ))}
+          </div>
+
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-6">
+            {rightColumnProjects.map((node) => (
+              <ElementBox_test key={node.id} node={node} />
+            ))}
+          </div>
+        </div>
       </div>
     </Layout>
   );
@@ -103,6 +138,16 @@ export const query = graphql`
           tags
           desc
           date
+          thumb {
+            childImageSharp {
+              gatsbyImageData(
+                width: 400
+                height: 400
+                layout: CONSTRAINED
+                placeholder: BLURRED
+              )
+            }
+          }
         }
         excerpt
       }
