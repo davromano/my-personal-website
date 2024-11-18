@@ -89,14 +89,14 @@ const Layout = ({ children }) => {
             >
               Projects
             </Link>
-            <a
+            {/*<a
               href="https://medium.com/@davide_romano"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-clicked-minsk hover:underline"
             >
               Articles
-            </a>
+            </a>*/}
           </div>
 
           {/* Right Links */}
