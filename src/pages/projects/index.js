@@ -104,16 +104,16 @@ const ProjectsPage = ({ data }) => {
         </div>
 
         {/* md and up: Two Columns with ElementBox_test */}
-        <div className="hidden md:flex flex-row gap-6">
+        <div className="hidden md:flex flex-row gap-6 ">
           {/* Left Column */}
-          <div className="flex-1 flex flex-col gap-6">
+          <div className="flex-1 flex flex-col gap-2">
             {leftColumnProjects.map((node) => (
               <ElementBox_test key={node.id} node={node} />
             ))}
           </div>
 
           {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-6">
+          <div className="flex-1 flex flex-col gap-2">
             {rightColumnProjects.map((node) => (
               <ElementBox_test key={node.id} node={node} />
             ))}

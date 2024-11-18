@@ -89,6 +89,14 @@ const Layout = ({ children }) => {
             >
               Projects
             </Link>
+            <a
+              href="https://medium.com/@davide_romano"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-clicked-minsk hover:underline"
+            >
+              Articles
+            </a>
           </div>
 
           {/* Right Links */}
@@ -154,6 +162,14 @@ const Layout = ({ children }) => {
           >
             Projects
           </Link>
+          <a
+            href="https://medium.com/@davide_romano"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"
+          >
+            Articles
+          </a>
           <Link
             to="/contacts"
             className="hover:text-clicked-minsk hover:underline transition-all duration-300 ease-in-out"

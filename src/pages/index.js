@@ -34,9 +34,9 @@ const IndexPage = ({ data }) => {
     <Layout pageTitle="Home Page">
       <div
         className="flex flex-col lg:flex-row text-dark-minsk mx-4 w-4/5 lg:w-full"
-        style={{ fontFamily: "tt-norms", height: "calc(100vh - 4rem)" }}
+        style={{ fontFamily: "tt-norms"}}
       >
-        <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32">
+        <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32 h-screen">
           <div className="lg:mx-32 overflow-hidden ">
             {/* Only show h1 on larger screens */}
             <h1 className="font-bold w-120 hidden lg:block text-6xl mb-4 animate-slideUp">

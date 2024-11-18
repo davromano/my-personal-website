@@ -35,7 +35,7 @@ const ElementBox_test = ({ node }) => {
         <GatsbyImage
           image={image}
           alt={`Thumbnail for ${title}`}
-          className="rounded-md object-cover h-40 md:h-32 w-full flex-none"
+          className="rounded-md object-cover h-32 md:h-40 w-full flex-none"
         />
       )}
 
