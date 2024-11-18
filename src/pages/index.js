@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
               Hi, I'm Davide
             </h1>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 mb-3 animate-slideUp">
-              I am a EPFL Digital Humanities master student currently working in
+              I am a EPFL Digital Humanities master's student currently working in
               AXA as LLM engineer / Data scientist intern.
             </p>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp mb-5">
