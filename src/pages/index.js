@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
     <Layout pageTitle="Home Page">
       <div
         className="flex flex-col lg:flex-row text-dark-minsk mx-4 w-4/5 lg:w-full"
-        style={{ fontFamily: "tt-norms"}}
+        style={{ fontFamily: "tt-norms" }}
       >
         <div className="lg:w-1/2 flex items-center justify-center lg:-mt-32 h-screen">
           <div className="lg:mx-32 overflow-hidden ">
@@ -47,8 +47,11 @@ const IndexPage = ({ data }) => {
               Hi, I'm Davide
             </h1>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 mb-3 animate-slideUp">
-              I am a EPFL Digital Humanities master's student currently working in
-              AXA as LLM engineer / Data scientist intern.
+              I am a EPFL Digital Humanities master's student currently working
+              for my master thesis at{" "}
+              <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
+              Thomson Reuters
+              </span>{" "}on LLM training.
             </p>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp mb-5">
               I am interested in designing and developing{" "}
