@@ -51,22 +51,21 @@ const IndexPage = ({ data }) => {
               for my master thesis at{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
               Thomson Reuters
-              </span>{" "}on LLM training.
+              </span>{" "}on Test Time Scaling in the legal domain.
             </p>
             <p className="lg:text-xl text-base mt-4 lg:mt-0 animate-slideUp mb-5">
-              I am interested in designing and developing{" "}
+              I am interested in{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
-                applications with large language models
+                applied research with large language models
               </span>{" "}
-              and leveraging{" "}
+              and NLP, bridging the gap between{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
-                data analysis
+                foundational research
               </span>{" "}
               and{" "}
               <span className="lg:font-bold font-normal text-red-highlight animate-slideUp">
-                visualization
-              </span>{" "}
-              to uncover actionable insights and stories.
+                real-world data science applications.
+              </span>
             </p>
           </div>
         </div>
